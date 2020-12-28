@@ -1,0 +1,10 @@
+- name: Alsace
+  tag: "alsace"
+- name: Jeux de sociétés
+  tag: "jeux2societe"
+- name: Livres
+  tag: "livres"
+- name: Taf
+  tag: "taf"
+- name: Web
+  tag: "web"
