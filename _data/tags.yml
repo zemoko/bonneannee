@@ -1,10 +1,10 @@
-- name: Alsace
-  tag: "alsace"
-- name: Jeux de sociétés
-  tag: "jeux2societe"
-- name: Livres
-  tag: "livres"
-- name: Taf
-  tag: "taf"
-- name: Web
-  tag: "web"
+- label: Alsace
+  value: "alsace"
+- label: Jeux de sociétés
+  value: "jeux2societe"
+- label: Livres
+  value: "livres"
+- label: Taf
+  value: "taf"
+- label: Web
+  value: "web"

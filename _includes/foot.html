@@ -1,5 +1,45 @@
 
+<footer>
+	<p><strong>{{ site.author }}</strong> alias <strong>{{ site.alias }}</strong></p>
+	<ul>
+{% if site.facebook_username %}
+		<li><a class="facebook" href="https://www.facebook.com/{{ site.facebook_username }}" target="_blank" title="{{ site.alias }} sur Facebook (nouvelle fenêtre)"><span class="sr-only">Facebook</span></a></li>
+{% endif %}
+{% if site.mastodon_username %}
+		<li><a class="mastodon" href="https://mamot.fr/@{{ site.mastodon_username }}" target="_blank" title="{{ site.alias }} sur Mastodon (nouvelle fenêtre)"><span class="sr-only">Mastodon</span></a></li>
+{% endif %}
+{% if site.twitter_username %}
+		<li><a class="twitter" href="https://twitter.com/{{ site.twitter_username }}/" target="_blank" title="{{ site.alias }} sur Twitter (nouvelle fenêtre)"><span class="sr-only">Twitter</span></a></li>
+{% endif %}
+{% if site.instagram_username %}
+		<li><a class="instagram" href="http://instagram.com/{{ site.instagram_username }}" target="_blank" title="{{ site.alias }} sur Instagram (nouvelle fenêtre)"><span class="sr-only">Instagram</span></a></li>
+{% endif %}
+{% if site.linkedin_username %}
+		<li><a class="linkedin" href="http://fr.linkedin.com/in/{{ site.linkedin_username }}/" target="_blank" title="{{ site.alias }} sur LinkedIn (nouvelle fenêtre)"><span class="sr-only">LinkedIn</span></a></li>
+{% endif %}
+{% if site.github_username %}
+		<li><a class="github" href="http://github.com/{{ site.github_username }}/" target="_blank" title="{{ site.alias }} sur Github (nouvelle fenêtre)"><span class="sr-only">Github</span></a></li>
+{% endif %}
+{% if site.blog_url %}
+		<li><a class="blog" href="{{ site.blog_url }}" target="_blank" title="Le blog du {{ site.alias }} (nouvelle fenêtre)"><span class="sr-only">{{ site.blog_url | remove: "https://www." }}</span></a></li>
+{% endif %}
+	</ul>
+</footer>
+
 <script>
+var elem = document.querySelector('.grid');
+var iso = new Isotope( elem, {
+  // options
+  itemSelector: '.grid-item',
+  layoutMode: "masonry",
+  filter: "all",
+  sortBy: date,
+  transformsEnabled: transformsEnabledValue,
+  sortAscending: false,
+  getSortData: {
+      date: "[data-date]"
+  }
+});
 
 {% if site.g_analytics %}
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -11,6 +51,24 @@
   ga('send', 'pageview');
 {% endif %}
 
-  document.getElementById('year').innerHTML = new Date().getFullYear();
-  
+{% if site.matomo %}
+
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="{{ site.matomo.url }}";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '{{ site.matomo.siteId }}']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+{% endif %}
+
 </script>

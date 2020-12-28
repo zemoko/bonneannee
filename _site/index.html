@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr" itemscope itemtype="http://schema.org/WebPage">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+
+    <title>Bonne année&nbsp;!</title>
+    <meta name="description" content="Retours sur l'année passée pour vous souhaiter une belle année future">
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="Arnaud">
+    <meta itemprop="name" content="Bonne année&nbsp;!">
+
+    <meta property="og:url" content="https://bonneannee.6x8.org" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Bonne année&nbsp;!" />
+    <meta property="og:description" content="Retours sur l'année passée pour vous souhaiter une belle année future" />
+    <meta property="og:image" content="https://bonneannee.6x8.org/images/favicon.png" />
+    <meta property="og:image:type" content="image/png" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@zsemoko" />
+    <meta name="twitter:title" content="Bonne année&nbsp;!" />
+    <meta name="twitter:description" content="Retours sur l'année passée pour vous souhaiter une belle année future" />
+    <meta name="twitter:image" content="https://bonneannee.6x8.org/images/favicon.png" />
+
+    <link rel="shortcut icon" href=".//images/favicon.png">
+    <link rel="stylesheet" href=".//assets/css/main.css">
+
+    <script src=".//assets/js/isotope.pkgd.min.js"></script>
+</head>
+
+<header>
+	<h1>
+		<span class="invisible">Bonne année&nbsp;!</span>
+		<span class="title" aria-hidden="true"></span>
+		<span class="cursor" aria-hidden="true">_</span>
+	</h1>
+	<p class="baseline">Retours sur l'année passée pour vous souhaiter une belle année <strong>2020</strong></p>
+</header>
+
+<main>
+	<article data-sel="all" data-sort="date">
+		<div class="panel" role="toolbar" aria-label="Filtrer" aria-controls="grid">
+			<ul id="tags">
+				<li id="all"><a tabindex="1" href="?tag=all">Tout</a></li>
+
+				<li id="alsace"><a tabindex="1" href="?tag=alsace">Alsace</a></li>
+
+				<li id="jeux2societe"><a tabindex="1" href="?tag=jeux2societe">Jeux de sociétés</a></li>
+
+				<li id="livres"><a tabindex="1" href="?tag=livres">Livres</a></li>
+
+				<li id="taf"><a tabindex="1" href="?tag=taf">Taf</a></li>
+
+				<li id="web"><a tabindex="1" href="?tag=web">Web</a></li>
+
+			</ul>
+		</div>
+		<div class="panel" role="toolbar" aria-label="Trier" aria-controls="grid">
+			<ul id="sort">
+				<li id="date"><a tabindex="1" href="?tri=date">Par date</a></li>
+				<li id="random"><a tabindex="1" href="?tri=random">Aléatoire</a></li>
+			</ul>
+		</div>
+		<div class="grid">
+
+			<div class="grid-item jeux2societe" data-date="2019-12-25">
+	
+				<img src="instagram/69745546_739906749830069_6481131369044948169_n.jpg" alt="">
+	
+				<dic class="content">
+					<p class="channel"><span class="sr-only" aria-label="Jeux de sociétés">Jeux de sociétés</span></p>
+					<h2>ERA&nbsp;: L’âge médiéval #jeuxdesociete</h2>
+	
+					<time datetime="2019-12-25">25 Dec 19</time>
+				</div>
+			</div>
+
+		</div>
+	</article>
+</main>
+
+
+<footer>
+	<p><strong>Arnaud</strong> alias <strong>Moko</strong></p>
+	<ul>
+
+		<li><a class="facebook" href="https://www.facebook.com/zemoko" target="_blank" title="Moko sur Facebook (nouvelle fenêtre)"><span class="sr-only">Facebook</span></a></li>
+
+
+		<li><a class="mastodon" href="https://mamot.fr/@zemoko" target="_blank" title="Moko sur Mastodon (nouvelle fenêtre)"><span class="sr-only">Mastodon</span></a></li>
+
+
+		<li><a class="twitter" href="https://twitter.com/zsemoko/" target="_blank" title="Moko sur Twitter (nouvelle fenêtre)"><span class="sr-only">Twitter</span></a></li>
+
+
+		<li><a class="instagram" href="http://instagram.com/zemoko" target="_blank" title="Moko sur Instagram (nouvelle fenêtre)"><span class="sr-only">Instagram</span></a></li>
+
+
+		<li><a class="linkedin" href="http://fr.linkedin.com/in/zemoko/" target="_blank" title="Moko sur LinkedIn (nouvelle fenêtre)"><span class="sr-only">LinkedIn</span></a></li>
+
+
+		<li><a class="github" href="http://github.com/zemoko/" target="_blank" title="Moko sur Github (nouvelle fenêtre)"><span class="sr-only">Github</span></a></li>
+
+
+		<li><a class="blog" href="https://www.6x8.org" target="_blank" title="Le blog du Moko (nouvelle fenêtre)"><span class="sr-only">6x8.org</span></a></li>
+
+	</ul>
+</footer>
+
+<script>
+var elem = document.querySelector('.grid');
+var iso = new Isotope( elem, {
+  // options
+  itemSelector: '.grid-item',
+  layoutMode: "masonry",
+  filter: "all",
+  sortBy: date,
+  transformsEnabled: transformsEnabledValue,
+  sortAscending: false,
+  getSortData: {
+      date: "[data-date]"
+  }
+});
+
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+
+
+
+
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+@font-face{
+    font-family:'Inconsolata';
+    font-style:normal;
+    font-weight:400;
+    font-display:auto;
+    src:url("../fonts/InconsolataGo-Regular.ttf")
+}
+@font-face{
+    font-family:'FontAwesomeBrands';
+    font-style:normal;
+    font-weight:400;
+    font-display:auto;
+    src:url("../fonts/fa-brands-400.eot");
+    src:url("../fonts/fa-brands-400.eot?#iefix") format("embedded-opentype"),url("../fonts/fa-brands-400.woff2") format("woff2"),url("../fonts/fa-brands-400.woff") format("woff"),url("../fonts/fa-brands-400.ttf") format("truetype"),url("../fonts/fa-brands-400.svg#fontawesome") format("svg")
+}
+
+@font-size: 16;         // Your base font-size in pixels
+@em: @font-size*1em;    // Shorthand for outputting ems, e.g. "12/@em"
+@rem: @font-size*1rem;  // Shorthand for outputting ems, e.g. "12/@rem"
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
+body {
+  background:#f2f2f2;
+  font-family:'Inconsolata',monospace;
+  margin:0;
+  padding: 14/@rem 30/@rem
+}
+header {
+  padding: 10/@rem 0;
+  h1 {
+    background: #000;
+    color: #fff;
+    font-weight: normal;
+    font-size:42/@rem;
+    display:inline-block;
+    padding:2/@rem 4/@rem;
+    margin:0;
+    min-width:29/@rem;
+
+    &:before {
+      speak: none;
+      content: "Bonne année\00a!";
+      animation-name: titre;
+      animation-duration: 10s;
+      animation-timing-function: ease;
+      margin-right: -20/@rem
+    }
+    .cursor {
+      speak: none;
+      opacity: 1;
+      animation-name: curseur;
+      animation-duration: .7s;
+      animation-timing-function: ease;
+      animation-iteration-count: infinite
+    }
+  }
+  p {
+    padding:2/@rem 4/@rem;
+    margin:0
+  }
+}
+article {
+  
+}
+
+@import "animations.less";

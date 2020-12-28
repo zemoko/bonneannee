@@ -6,20 +6,28 @@ highlighter: rouge
 lsi: false
 permalink: /:title
 
-title: "Bonne année !"
+title: "Bonne année&nbsp;!"
 description: "Retours sur l'année passée pour vous souhaiter une belle année future"
-baseurl: "/onepage"
+baseurl: "./"
 url: "https://bonneannee.6x8.org" # replace by your site's url
-twitter_username: zemoko
-github_username:  zemoko
-accent: "#f7f7e6" # accent color for blog column
 
-author: "Your Name"
-address: "Your Street, <br>Your City, Country"
-email: "your@email.com"
+author: "Arnaud"
+alias: "Moko"
+facebook_username: zemoko
+twitter_username: zsemoko
+mastodon_username: zemoko
+instagram_username: zemoko
+linkedin_username: zemoko
+github_username:  zemoko
+blog_url: https://www.6x8.org
 
 # google analytics tracking code, please change the value
 g_analytics: ""
+
+# matomo tracking code, please change the value
+matomo:
+  - url: //www.6x8.org/matomo/
+  - SiteId: 5
 
 # language settings
 isolang: fr
