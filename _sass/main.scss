@@ -1,0 +1,488 @@
+@import 'base';
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
+body {
+  background: #f2f2f2;
+  font-family: $font-stack;
+  margin: 0;
+  padding: rem(14) rem(30);
+  @include media("<=xs") {
+    padding: rem(15)
+  }
+}
+header {
+  padding: rem(10) 0;
+  h1 {
+    background: #000;
+    color: #fff;
+    font-weight: normal;
+    font-size: rem(42);
+    display: inline-block;
+    padding: rem(2) rem(4);
+    margin: 0;
+    min-width: rem(29);
+
+    @include media("<=s") {
+        font-size: rem(34);
+    }
+
+    &:before {
+      speak: none;
+      content: "Bonne année\00a!";
+      animation-name: titre;
+      animation-duration: 10s;
+      animation-timing-function: ease;
+      margin-right: rem(-20)
+    }
+    .cursor {
+      speak: none;
+      opacity: 1;
+      animation-name: curseur;
+      animation-duration: .7s;
+      animation-timing-function: ease;
+      animation-iteration-count: infinite
+    }
+  }
+  p {
+    padding: rem(2) rem(4);
+    margin: 0
+  }
+}
+
+.panel {
+    padding: rem(10) 0;
+    margin: 0;
+    text-align: right;
+
+    position: absolute;
+    top: rem(12);
+    right: rem(30);
+
+    @include media("<=s") {
+        position: static;
+        text-align: center;
+        padding: 0;
+    }
+
+    ul {
+        display: block;
+        list-style: none;
+        padding: 0;
+        @include media("<=s") {
+            margin: rem(5);
+        }
+    }
+    li {
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+        &:after {
+           content:" /"
+        }
+        &:last-child:after {
+            display: none
+        }
+        a {
+            color: #000;
+            text-decoration: none;
+            &:hover, &:focus {
+                color: #aaa;
+                border-bottom: 1px solid #aaa;
+            }
+            &.sel { 
+                font-weight: bold;
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.grid {
+    margin: 0 rem(-10);
+}
+
+.grid-item {
+    display:inline-block;
+    margin: 10px;
+    background: #fff;
+    position: relative;
+    text-decoration: none;
+
+    width: 20%;
+    width: calc(20% - 20px );
+
+    @include media("<=l") {
+        width: 25%;
+        width: calc(25% - 20px );
+    }
+    @include media("<=m") {
+        width: 33.33%;
+        width: calc(33.33% - 20px );
+    }
+    @include media("<=s") {
+        width: 50%;
+        width: calc(50% - 20px );
+    }
+    @include media("<=xs") {
+        width: 100%;
+        width: calc(100% - 20px );
+    }
+}
+
+.card {
+    position: relative;
+    h2 a::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: box-shadow .2s ease 0s;
+    }
+    figure {
+        width: 100%;
+        display: block;
+        margin: 0;
+        img {
+            width: 100%;
+            display: block;
+        }
+        video {
+            width: 100%;
+        }
+    }
+    .card-body {
+        background: #fff;
+        opacity: 1;
+        transition: opacity .5s ease 0s;
+        display: flex;
+        flex-direction: column;
+    }
+    p.channel {
+        flex: 1 1 0%;
+        padding: rem(15);
+        @include media("<=xs") {
+            padding-bottom: rem(5);
+        }
+        &:before {
+            display: flex;
+            background: #000;
+            color: #fff;
+            text-decoration: none;
+            width: rem(30);
+            height: rem(30);
+            border-radius: rem(30);
+            justify-content: center;
+            align-items: center;
+            text-rendering: optimizeLegibility;
+            font-smoothing: antialiased;
+        }
+    }
+    h2, p {
+        padding: rem(5) rem(15);
+        margin: 0;
+        line-height: .9;
+    }
+    h2 {
+        a {
+            color: #fff;
+            text-decoration: none;
+            span {
+                position: relative;
+                z-index: 42;
+            }
+        }
+    }
+    time {
+        padding: 0 rem(15) rem(15) rem(15);
+        color: #000;
+        zoom: 1;
+        opacity: 0;
+        transform: translate(translate(0, 15px))
+    }
+
+    figure + .card-body {
+        position: absolute;
+        top: rem(15);
+        left: rem(15);
+        width: calc(100% - 30px);
+        height: calc(100% - 30px);
+        opacity: 0;
+        h2 a {
+            color: #000;
+            span {
+                zoom: 1;
+                opacity: 0;
+                transform: translate(0, 15px);
+            }
+            &::after {
+                top: -15px;
+                left: -15px;
+                width: calc(100% + 30px);
+                height: calc(100% + 30px);
+            }
+        }
+
+        @include media("<=s") {
+            position: static;
+            width: 100%;
+            height: auto;
+            opacity: 1;
+            p.channel {
+                margin-bottom: 0;
+            }
+            h2 a span {
+                opacity: 1;
+                transform: translate(0, 0);
+            }
+            time {
+                opacity: 1;
+            }
+        }
+    }
+    &:hover {
+       h2 a::after {
+            box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+        }
+        figure + .card-body {
+            opacity: .9;
+            h2 a span {
+                zoom: 1;
+                opacity: 1;
+                transform: translate(0, 0);
+                transition: all .3s .1s cubic-bezier(.455, .03, .515, .955);
+
+                @include media("<=s") {
+                    text-decoration: underline;
+                }
+            }
+            time {
+                zoom: 1;
+                opacity: 1;
+                transform: translate(translate(0, 0));
+                transition:all .4s .2s cubic-bezier(.455, .03, .515, .955);
+            }
+        }
+    }
+    h2 a:focus {
+        overflow: hidden;
+        span {
+            zoom: 1;
+            opacity: 1;
+            transform: translate(0, 0);
+            transition: all .3s .1s cubic-bezier(.455, .03, .515, .955);
+
+            @include media("<=s") {
+                text-decoration: underline;
+            }
+        }
+        &:after {
+            box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+        }
+    }
+
+// Blog
+    &.blog {
+        .card-body {
+            background: $blog-color;
+            p.channel:before {
+                background: #fff;
+                color: #000;
+                content:"6x8";
+            }
+        }
+        figure + .card-body {
+            background: #fff;
+            p.channel:before {
+                background: $blog-color;
+                color: #fff;
+            }
+        }
+        figure + .card-body {
+            h2 a span {
+                &:hover, &:focus {
+                    color: $blog-color;
+                }
+            }
+        }
+    }
+
+// Twitter & Mastodon
+    &.twitter, &.mastodon {
+        .card-body {
+            background: $twitter-color;
+            p.channel:before {
+                background: #fff;
+                color: $twitter-color;
+                font-family: $font-brands;
+            }
+        }
+        figure + .card-body {
+            background: #fff;
+            p.channel:before {
+                background: $twitter-color;
+                color: #fff;
+            }
+        }
+        figure + .card-body {
+            h2 a span {
+                &:hover, &:focus {
+                    color: $twitter-color;
+                }
+            }
+        }
+    }
+    &.twitter {
+        .card-body {
+            p.channel:before {
+                content:"\f09";
+            }
+        }
+    }
+    &.mastodon {
+        .card-body {
+            p.channel:before {
+                content:"\f4f6";
+            }
+        }
+    }
+
+// Instagram
+    &.instagram {
+        .card-body {
+            p.channel:before {
+                background: $instagram-color;
+                font-family: $font-brands;
+                content:"\f16d";
+            }
+        }
+        figure + .card-body {
+            h2 a span {
+                &:hover, &:focus {
+                    color: $instagram-color;
+                }
+            }
+        }
+    }
+
+}
+
+footer {
+    margin-top: rem(100);
+    border-top: 1px solid #999;
+    text-align: center;
+    @include media("<=xs") {
+        margin-top: rem(50);
+    }
+    p {
+        margin: rem(20) 0;
+    }
+    ul {
+        display: block;
+        list-style: none;
+        padding: 0;
+        margin: rem(20) 0;
+        margin:1.25rem 0;
+    }
+    li {
+        display:inline-block;
+        padding: 0;
+        margin: 0 rem(20);
+        position:relative;
+        @include media("<=xs") {
+            margin-top: 0 rem(10);
+        }
+        a {
+            text-decoration:none;
+            &:before {
+                display: flex;
+                background: #000;
+                color: #fff;
+                width: rem(30);
+                height: rem(30);
+                border-radius: rem(30);
+                justify-content: center;
+                align-items: center;
+                text-rendering: optimizeLegibility;
+                font-smoothing: antialiased;
+            }
+            &:hover:before, &:focus:before {
+                box-shadow: 0 0 rem(15) rgba(0,0,0,0.2);
+            }
+            &.facebook {
+                &:before {
+                    font-family: $font-brands;
+                    content: '\f39e';
+                }
+                &:hover:before, &:focus:before {
+                    background: $facebook-color;
+                }
+            }
+            &.twitter, &.mastodon {
+                &:before {
+                    font-family: $font-brands;
+                }
+                &:hover:before, &:focus:before {
+                    background: $twitter-color;
+                }
+            }
+            &.twitter {
+                &:before {
+                    content: '\f099';
+                }
+            }
+            &.mastodon {
+                &:before {
+                    content: '\f4f6';
+                }
+            }
+            &.instagram {
+                &:before {
+                    font-family: $font-brands;
+                    content: '\f16d';
+                }
+                &:hover:before, &:focus:before {
+                    background: $instagram-color;
+                }
+            }
+            &.linkedin {
+                &:before {
+                    font-family: $font-brands;
+                    content: '\f0e1';
+                }
+                &:hover:before, &:focus:before {
+                    background: $linkedin-color;
+                }
+            }
+            &.github {
+                &:before {
+                    font-family: $font-brands;
+                    content: '\f09b';
+                }
+                &:hover:before, &:focus:before {
+                    background: $github-color;
+                }
+            }
+            &.blog {
+                &:before {
+                    content: '6x8';
+                }
+                &:hover:before, &:focus:before {
+                    background: $blog-color;
+                }
+            }
+        }
+    }
+}

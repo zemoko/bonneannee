@@ -5,9 +5,12 @@ markdown: kramdown
 highlighter: rouge
 lsi: false
 permalink: /:title
-
-title: "Bonne année&nbsp;!"
-description: "Retours sur l'année passée pour vous souhaiter une belle année future"
+future: true
+sass:
+  style: compressed
+  
+title: "Bonne année !"
+description: "Retours sur l’année passée pour vous souhaiter une belle année future"
 baseurl: "./"
 url: "https://bonneannee.6x8.org" # replace by your site's url
 
@@ -20,9 +23,6 @@ instagram_username: zemoko
 linkedin_username: zemoko
 github_username:  zemoko
 blog_url: https://www.6x8.org
-
-# google analytics tracking code, please change the value
-g_analytics: ""
 
 # matomo tracking code, please change the value
 matomo:

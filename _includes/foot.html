@@ -27,13 +27,46 @@
 </footer>
 
 <script>
-var elem = document.querySelector('.grid');
-var iso = new Isotope( elem, {
+var grid = document.querySelector('.grid');
+var contenu = document.querySelector('#content');
+var tags = document.querySelectorAll('#tags a');
+var sort = document.querySelectorAll('#sort a');
+var liens = document.querySelectorAll('.card a');
+
+var is_mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+var transformsEnabledValue = (is_mobile) ? true : false;
+
+function getVar(key, default_) {
+	if (default_==null) default_=0;
+	key = key.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+	var regex = new RegExp("[\\?&#]"+key+"=([^&#]*)");
+	var qs = regex.exec(window.location.href);
+	if(qs == null) return default_; else return qs[1];
+}
+var tagValue = getVar("tag");
+if (tagValue==0) {
+	tagValue = "all";
+}
+//console.log("tagValue: " + tagValue)
+contenu.dataset.sel = tagValue;;
+document.querySelector('#tags a.sel').classList.remove("sel")
+document.querySelector('#tags a#'+tagValue).classList.add("sel")
+
+var sortValue = getVar("tri");
+if (sortValue==0) {
+	sortValue = "date";
+}
+//console.log("sortValue: " + sortValue)
+contenu.dataset.tri = sortValue;
+document.querySelector('#sort a.sel').classList.remove("sel")
+document.querySelector('#sort a#'+sortValue).classList.add("sel")
+
+var iso = new Isotope( grid, {
   // options
   itemSelector: '.grid-item',
   layoutMode: "masonry",
-  filter: "all",
-  sortBy: date,
+  filter: ((tagValue=="all") ? "" : "."+tagValue ),
+  sortBy: sortValue,
   transformsEnabled: transformsEnabledValue,
   sortAscending: false,
   getSortData: {
@@ -41,20 +74,11 @@ var iso = new Isotope( elem, {
   }
 });
 
-{% if site.g_analytics %}
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', '{{ site.g_analytics }}', 'auto');
-  ga('send', 'pageview');
-{% endif %}
+imagesLoaded( grid, function() {iso.layout();});
 
 {% if site.matomo %}
 
 <!-- Matomo -->
-<script type="text/javascript">
   var _paq = window._paq = window._paq || [];
   /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
   _paq.push(['trackPageView']);
@@ -66,9 +90,73 @@ var iso = new Isotope( elem, {
     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
     g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
   })();
-</script>
 <!-- End Matomo Code -->
 
 {% endif %}
+
+// Filtrer
+tags.forEach(function(element, index) {
+	element.addEventListener('click', event => {
+		event.preventDefault()
+		tagValue = element.id;
+		contenu.dataset.sel = tagValue;
+		document.querySelector('#tags a.sel').classList.remove("sel")
+		document.querySelector('#tags a#'+tagValue).classList.add("sel")
+		if (tagValue=="all") {
+			tagValue = "";
+		} else {
+			tagValue = "." + tagValue;
+		}
+		iso.arrange({ filter: tagValue });
+{% if site.matomo %}
+		_paq.push(["trackEvent", "Isotope", "Filtrer", tagValue]);
+{% endif %}
+	});
+});
+
+// Trier
+sort.forEach(function(element, index) {
+	element.addEventListener('click', event => {
+		event.preventDefault()
+		sortValue = element.id;
+		contenu.dataset.tri = sortValue;
+		document.querySelector('#sort a.sel').classList.remove("sel")
+		document.querySelector('#sort a#'+sortValue).classList.add("sel")
+		if (sortValue=="random") {
+			iso.shuffle();
+		} else {
+			iso.arrange({ sortBy: sortValue });
+		}
+{% if site.matomo %}
+		_paq.push(["trackEvent", "Isotope", "Trier", tagValue]);
+{% endif %}
+	});
+});
+
+// Cliquer
+liens.forEach(function(element, index) {
+	element.addEventListener('focus', event => {
+		opacity = window.getComputedStyle(element.parentNode.parentNode).getPropertyValue("opacity");
+		console.log("opacity? " + opacity);
+		if (opacity == 0) {
+			element.parentNode.parentNode.style.opacity = .99;
+			element.childNodes[0].style.opacity = .99;
+		}
+	});
+	element.addEventListener('blur', event => {
+		opacity = window.getComputedStyle(element.parentNode.parentNode).getPropertyValue("opacity");
+		console.log("opacity? " + opacity);
+		if (opacity == "0.99") {
+			element.parentNode.parentNode.style.opacity = 0;
+			element.childNodes[0].style.opacity = 0;
+		}
+	});
+	element.addEventListener('click', event => {
+		linkValue = element.href;
+{% if site.matomo %}
+		_paq.push(["trackEvent", "Isotope", "Lien", linkValue]);
+{% endif %}
+	});
+});
 
 </script>

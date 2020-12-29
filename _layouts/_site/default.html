@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="{{ site.isolang }}" itemscope itemtype="http://schema.org/WebPage">
+
+{% include head.html %}
+
+<header>
+	<h1>
+		<span class="sr-only">{{post.title}}</span>
+		<span class="title" aria-hidden="true"></span>
+		<span class="cursor" aria-hidden="true">_</span>
+	</h1>
+	<p class="baseline">{{post.description}}</p>
+	{{content}}
+</header>
+
+<main>
+	<article data-sel="all" data-sort="date">
+		<div class="panel" role="toolbar" aria-label="Filtrer" aria-controls="grid">
+			<ul id="tags">
+				<li id="all"><a tabindex="1" href="?tag=all">Tout</a></li>
+{% for tag in site.data.tags %}
+				<li id="{{tag.value}}"><a tabindex="1" href="?tag={{tag.value}}">{{tag.label}}</a></li>
+{% endfor %}
+			</ul>
+		</div>
+		<div class="panel" role="toolbar" aria-label="Trier" aria-controls="grid">
+			<ul id="sort">
+				<li id="date"><a tabindex="1" href="?tri=date">Par date</a></li>
+				<li id="random"><a tabindex="1" href="?tri=random">Aléatoire</a></li>
+			</ul>
+		</div>
+		<div class="grid">
+{% for item in site.data.items %}
+			<div class="grid-item {{item.tags[1].value}}" data-date="{{item.date}}">
+	{% if item.image != "" %}
+				<img src="{{item.image}}" alt="">
+	{% endif %}
+				<dic class="content">
+					<p class="channel"><span class="sr-only" aria-label="{{item.tags[1].label}}">{{item.tags[1].label}}</span></p>
+					<h2>{{item.title}}</h2>
+	{% if item.description != "" %}
+					<p>{{item.description}}</h2>
+	{% endif %}
+					<time datetime="{{item.date}}">{{item.date | date: "%d %b %y"}}</time>
+				</div>
+			</div>
+{% endfor %}
+		</div>
+	</article>
+</main>
+
+{% include foot.html %}
+
+</body>
+</html>

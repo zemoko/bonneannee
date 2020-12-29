@@ -5,42 +5,47 @@
 
 <header>
 	<h1>
-		<span class="invisible">{{site.title}}</span>
+		<span class="sr-only">{{ page.title }}</span>
 		<span class="title" aria-hidden="true"></span>
 		<span class="cursor" aria-hidden="true">_</span>
 	</h1>
-	<p class="baseline">Retours sur l'année passée pour vous souhaiter une belle année <strong>2020</strong></p>
+	<p class="baseline">{{ page.description }}</p>
 </header>
 
 <main>
-	<article data-sel="all" data-sort="date">
+	<article id="content" data-sel="all" data-sort="date">
 		<div class="panel" role="toolbar" aria-label="Filtrer" aria-controls="grid">
+			<ul id="sort">
+				<li><a id="date" class="sel" tabindex="1" href="?tri=date">Par date</a></li>
+				<li><a  id="random" tabindex="1" href="?tri=random">Aléatoire</a></li>
+			</ul>
 			<ul id="tags">
-				<li id="all"><a tabindex="1" href="?tag=all">Tout</a></li>
-{% for tag in site.data.tags %}
-				<li id="{{tag.value}}"><a tabindex="1" href="?tag={{tag.value}}">{{tag.label}}</a></li>
+				<li><a  id="all" class="sel"tabindex="1" href="?tag=all">Tout</a></li>
+{% for tag in page.tags %}
+				<li><a id="{{ tag.value }}" tabindex="1" href="?tag={{ tag.value }}">{{ tag.label }}</a></li>
 {% endfor %}
 			</ul>
 		</div>
-		<div class="panel" role="toolbar" aria-label="Trier" aria-controls="grid">
-			<ul id="sort">
-				<li id="date"><a tabindex="1" href="?tri=date">Par date</a></li>
-				<li id="random"><a tabindex="1" href="?tri=random">Aléatoire</a></li>
-			</ul>
-		</div>
-		<div class="grid">
-{% for item in site.data.items %}
-			<div class="grid-item {{item.tags[1].value}}" data-date="{{item.date}}">
-	{% if item.image != "" %}
-				<img src="{{item.image}}" alt="">
+		<div class="grid" id="grid" data-sel="all" data-tri="date">
+{% for item in page.items %}
+			<div class="grid-item card{% for tag in item.tags %} {{ tag.value }}{% endfor %}" data-date="{{ item.date }}">
+	{% if item.image %}
+				<figure aria-labelledby="h2-{{ forloop.index }}" {% if item.description != "" %}aria-describedby="p-{{ forloop.index }}"{% endif %}>
+		{% capture extension %}{{ item.image | slice: -3, 3 }}{% endcapture %}
+		{% if extension == "mp4" %}
+					<video type="video/mp4" loop="true" muted="true" autoplay="true" preload="auto" src="{{ item.image | prepend: 'images/' }}" >
+		{% else %}
+					<img src="{{ item.image | prepend: 'images/' }}" alt="">
+		{% endif %}
+				</figure>
 	{% endif %}
-				<dic class="content">
-					<p class="channel"><span class="sr-only" aria-label="{{item.tags[1].label}}">{{item.tags[1].label}}</span></p>
-					<h2>{{item.title}}</h2>
+				<div class="card-body">
+					<p class="channel"><span class="sr-only" aria-label="{{ item.tags[0].label }}">{{ item.tags[0].label }}</span></p>
+					<h2 id-"h2-{{ forloop.index }}"><a href="{{ item.link }}" target="_blank" title="{{ item.title | strip_html }} (nouvelle fenêtre)" tabindex="{{ forloop.index0 | plus: 2}}"><span>{{ item.title }}</span></a></h2>
 	{% if item.description != "" %}
-					<p>{{item.description}}</h2>
+					<p id-"p-{{ forloop.index }}">{{ item.description }}</p>
 	{% endif %}
-					<time datetime="{{item.date}}">{{item.date | date: "%d %b %y"}}</time>
+					<time datetime="{{ item.date }}">{{ item.date | date: "%d %b %y" }}</time>
 				</div>
 			</div>
 {% endfor %}
