@@ -1388,16 +1388,15 @@ sort.forEach(function(element, index) {
 liens.forEach(function(element, index) {
 	element.addEventListener('focus', event => {
 		opacity = window.getComputedStyle(element.parentNode.parentNode).getPropertyValue("opacity");
-		console.log("opacity? " + opacity);
 		if (opacity == 0) {
 			element.parentNode.parentNode.style.opacity = .99;
-			element.childNodes[0].style.opacity = .99;
+			element.childNodes[0].style.opacity = 1;
 		}
 	});
 	element.addEventListener('blur', event => {
 		opacity = window.getComputedStyle(element.parentNode.parentNode).getPropertyValue("opacity");
-		console.log("opacity? " + opacity);
-		if (opacity == "0.99") {
+		if ( (opacity != "1") && (opacity != 0) ) {
+			console.log("gnaaaaaa");
 			element.parentNode.parentNode.style.opacity = 0;
 			element.childNodes[0].style.opacity = 0;
 		}
