@@ -1,38 +1,18 @@
-# onepage
-uncomplicated single-page jekyll blog theme
+# Bonne année !
 
-## find a demo here [HERE](https://lukas-h.github.io/onepage/)
+Tous les ans, je prépare en fin d'année ma carte de voeux pour souhaite à tous une bien bonne année à venir.
 
-## use it in 4 easy steps
+C'est agréable, ça me permet de revenir sur l'année passée. Mais aussi, ça me permet, tous les ans, de repartir sur la base de l'année précédente et de m'amuser à l'améliorer et à tester différentes choses que j'ai n'ai pas toujours la possibilité de tester au taf.
 
-#### 1. fork this repository and rename it
+Cette année, plus que le format de la carte, j'ai travaillé sur mon process pour la produire. Depuis 25 ans, je fais des sites en HTML en les codant directement dans mon Notepad/Sublime Text/etc du moment... J'ai voulu tester quelque chose de nouveau (pour moi) :
+- Utiliser un générateur de site statique (j'ai choisi Jekyll car il utilise le language Liquid - Les vrais savent).
+- Heberger tout cela sur Github (pour manier un peu git, ça aussi je connais les principes mais je n'ai pas la pratique)
+- Configurer mon mac pour permettre le process de développement et de livraison des différentes release.
 
-#### 2. create a branch called `gh-pages`
+(pour ne pas partir de rien, j'ai choisi de forker [le projet Onepage de Lukas H](http://lukas-h.github.io/onepage), merci à lui.
 
-#### 3. edit the `_config.yml` file  
+# Alors... Bonne année 2021 !
 
-3.1. paste your `title` and `description`  
+Et rendez-vous l'an prochain pour la suite de mes aventures.
 
-3.2. give your site's url with protocol (http or https) to the variable `url`  
-
-3.3. the part after your page domain, for example you have `http://lukas-h.github.io/onepage`, `baseurl: "/onepage"` is the right value
-
-3.4. paste **github** and **twitter** username to the following variables. Important: **without** @ prefix  
-
-3.5. `accent` is the color code for the blog column
-
-3.6. edit address and name, email too.
-
-3.7. you are using google analytics? paste your ID to `g_analytics: ""`
-
-3.8. edit html content language here: `isolang: en`, default is english
-
-#### 4. start writing posts
-
-4.1 posts are in the directory `_posts`  
-
-4.2 see here an introduction: http://jekyllrb.com/docs/posts/  
-
-# thank you
-share this project, give a star, contributions welcome  
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
