@@ -16,18 +16,18 @@ url: "https://bonneannee.6x8.org" # replace by your site's url
 
 author: "Arnaud"
 alias: "Moko"
-facebook_username: zemoko
-twitter_username: zsemoko
-mastodon_username: zemoko
-instagram_username: zemoko
-linkedin_username: zemoko
-github_username:  zemoko
-blog_url: https://www.6x8.org
+facebook_username: "zemoko"
+twitter_username: "zemoko"
+mastodon_username: "zemoko"
+instagram_username: "zemoko"
+linkedin_username: "zemoko"
+github_username:  "zemoko"
+blog_url: "https://www.6x8.org"
 
 # matomo tracking code, please change the value
-matomo:
-  - url: //www.6x8.org/matomo/
-  - SiteId: 5
+matomo: true
+matomoUrl: "//www.6x8.org/matomo/"
+matomoSiteId: 5
 
 # language settings
 isolang: fr

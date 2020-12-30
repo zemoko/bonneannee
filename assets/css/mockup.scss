@@ -12,9 +12,6 @@ header {
         position: absolute;
         top: 46px;
         left: 26px;
-        &:before {
-            animation-name: none;
-        }
     }
     p.baseline {
         width: 448px;
