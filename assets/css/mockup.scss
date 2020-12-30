@@ -1,0 +1,160 @@
+---
+# Front matter comment to ensure Jekyll properly reads file.
+---
+
+header {
+    h1 {
+        width: 480px;
+        padding: 8px 4px;
+        font-size: 50px;
+        background: #333;
+        transform: rotateX(50deg) rotateZ(-15deg);
+        position: absolute;
+        top: 46px;
+        left: 26px;
+        &:before {
+            animation-name: none;
+        }
+    }
+    p.baseline {
+        width: 448px;
+        background: lightgrey;
+        padding: 6px 12px;
+        transform: skewY(-10deg);
+        position: absolute;
+        top: 101px;
+        left: 43px;
+    }
+    &:after {
+        content: " ";
+        display: inline-block;
+        background: darkgray;
+        width: 20px;
+        height: 42px;
+        transform: skewY(68deg);
+        position: absolute;
+        top: 124px;
+        left: 25px;
+    }
+}
+
+.mockup {
+    position: absolute;
+    &:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        transform: rotateX(45deg) rotateZ(-45deg);
+        transform-style: preserve-3d;  
+        z-index: -1;
+        box-shadow: -60px 60px 15px #eee; 
+    }
+    > div {
+        $thickness: 30px;
+        $color: #ddd;
+
+        position: relative;
+        display: inline-block;
+        margin: 0 auto;
+        background-color: #ccc;
+        margin: 0 auto;  
+        transform-style: preserve-3d;
+
+        &:before {
+            content: "";
+            position: absolute;
+            bottom: -$thickness / 2;
+            left: 0;
+            background-color: $color;
+            width: 100%;
+            height: $thickness;
+            display: block;
+            transform: rotateX(90deg) translateY(-$thickness / 2);
+        }
+
+        &:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -$thickness / 2;
+            width: $thickness;
+            height: 100%;
+            background-color: darken($color, 10%);
+            transform: rotateY(90deg) translateX($thickness / 2);
+        }
+    }
+    &#desktop {
+        top: -300px;
+        left: -282px;
+        > div {
+            transform: scale(.4) rotateX(50deg) rotateZ(-15deg);
+        }
+        iframe {
+            width: 1400px;
+            height: 1200px; 
+        }
+    }
+    &#tablet {
+        top: -240px;
+        left: 425px;
+        > div {
+            transform: scale(.4) rotateX(50deg) rotateZ(-15deg);
+        }
+        iframe {
+            width: 666px;
+            height: 1060px; 
+        }
+    }
+    &#smartphone {
+        top: 40px;
+        left: -28px;
+        > div {
+            transform: scale(.4) rotateX(50deg) rotateZ(-15deg);
+        }
+        iframe {
+            width: 375px;
+            height: 812px; 
+        }
+    }
+}
+
+footer {
+    border-top: none;
+    p {
+        width: 218px;
+        font-size: 22px;
+        padding: 8px 4px;
+        background: #333;
+        color: #fff;
+        transform: rotateX(50deg) rotateZ(-15deg);
+        position: absolute;
+        top: 445px;
+        left: 445px;
+    }
+    &:before {
+        content: " ";
+        display: inline-block;
+        width: 197px;
+        height: 10px;
+        background: lightgrey;
+        padding: 6px 12px;
+        transform: skewY(-10deg);
+        position: absolute;
+        top: 498px;
+        left: 452px;
+    }
+    &:after {
+        content: " ";
+        display: inline-block;
+        background: darkgray;
+        width: 10px;
+        height: 22px;
+        transform: skewY(68deg);
+        position: absolute;
+        top: 505px;
+        left: 443px;
+    }
+}

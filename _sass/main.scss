@@ -253,12 +253,12 @@ header {
         }
     }
     &:hover {
-        transform: translate(-2px, -2px);
+        transform: translate(2px, -2px);
         @media (prefers-reduced-motion) {
             transform: none;
         }
         h2 a::after {
-            box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+            box-shadow: -5px 5px 10px rgba(0,0,0,0.5);
         }
         figure + .card-body {
             opacity: .9;
