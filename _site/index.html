@@ -1330,7 +1330,7 @@ imagesLoaded( grid, function() {iso.layout();});
 //tags.forEach(function(element, index) {
 // forEach ne fonctionne pas avec IE11
 for (var i = 0 ; i < tags.length ; i++) {
-	tags[i].addEventListener('click', event => {
+	tags[i].addEventListener('click', function(event) {
 		event.preventDefault()
 		tagValue = element.id;
 		contenu.dataset.sel = tagValue;
