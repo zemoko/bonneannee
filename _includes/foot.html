@@ -93,8 +93,10 @@ imagesLoaded( grid, function() {iso.layout();});
 {% endif %}
 
 // Filtrer
-tags.forEach(function(element, index) {
-	element.addEventListener('click', event => {
+//tags.forEach(function(element, index) {
+// forEach ne fonctionne pas avec IE11
+for (var i = 0 ; i < tags.length ; i++) {
+	tags[i].addEventListener('click', event => {
 		event.preventDefault()
 		tagValue = element.id;
 		contenu.dataset.sel = tagValue;
@@ -113,8 +115,10 @@ tags.forEach(function(element, index) {
 });
 
 // Trier
-sort.forEach(function(element, index) {
-	element.addEventListener('click', event => {
+//sort.forEach(function(element, index) {
+// forEach ne fonctionne pas avec IE11
+for (var i = 0 ; i < sort.length ; i++) {
+	sort[i].addEventListener('click', event => {
 		event.preventDefault()
 		sortValue = element.id;
 		contenu.dataset.tri = sortValue;
@@ -132,16 +136,17 @@ sort.forEach(function(element, index) {
 });
 
 // Liens
-liens.forEach(function(element, index) {
-	element.addEventListener('focus', event => {
-		element.parentNode.parentNode.parentNode.classList.add("hover");
-		console.log( element.parentNode.parentNode.parentNode );
+//liens.forEach(function(element, index) {
+// forEach ne fonctionne pas avec IE11
+for (var i = 0 ; i < liens.length ; i++) {
+	liens[i].addEventListener('focus', event => {
+		liens[i].parentNode.parentNode.parentNode.classList.add("hover");
 	});
-	element.addEventListener('blur', event => {
-		element.parentNode.parentNode.parentNode.classList.remove("hover");
+	liens[i].addEventListener('blur', event => {
+		liens[i].parentNode.parentNode.parentNode.classList.remove("hover");
 	});
-	element.addEventListener('click', event => {
-		linkValue = element.href;
+	liens[i].addEventListener('click', event => {
+		linkValue = liens[i].href;
 {% if site.matomo %}
 		_paq.push(["trackEvent", "Isotope", "Lien", linkValue]);
 {% endif %}
