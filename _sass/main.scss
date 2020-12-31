@@ -32,7 +32,6 @@ header {
     padding: rem(2) rem(4);
     margin: rem(5) 0;
     min-width: rem(29);
-    box-shadow: 0 3px 3px rgba(0,0,0,0.7),0 3px 9px rgba(0,0,0,0.2);
 
     @include media("<=s") {
         font-size: rem(34);
@@ -45,6 +44,7 @@ header {
       animation-duration: 10s;
       animation-timing-function: ease;
       margin-right: rem(-20)
+      box-shadow: 0 3px 3px rgba(0,0,0,0.7),0 3px 9px rgba(0,0,0,0.2);
     }
     .cursor {
       speak: none;
