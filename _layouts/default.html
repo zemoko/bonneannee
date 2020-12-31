@@ -41,7 +41,7 @@
 	{% endif %}
 				<div class="card-body">
 					<p class="channel"><span class="sr-only" aria-label="{{ item.tags[0].label }}">{{ item.tags[0].label }}</span></p>
-					<h2 id-"h2-{{ forloop.index }}"><a href="{{ item.link }}" target="_blank" title="{{ item.title | strip_html }} (nouvelle fenêtre)" tabindex="{{ forloop.index0 | plus: 2}}"><span>{{ item.title }}</span></a></h2>
+					<h2 id-"h2-{{ forloop.index }}"><a href="{{ item.link }}" target="_blank" title="{{ item.title | strip_html }} (nouvelle fenêtre)" aria-label="title="{{ item.title | strip_html }} (nouvelle fenêtre)"" tabindex="{{ forloop.index0 | plus: 2}}"><span>{{ item.title }}</span></a></h2>
 	{% if item.description != "" %}
 					<p id-"p-{{ forloop.index }}">{{ item.description }}</p>
 	{% endif %}

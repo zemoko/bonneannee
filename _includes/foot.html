@@ -47,7 +47,6 @@ var tagValue = getVar("tag");
 if (tagValue==0) {
 	tagValue = "all";
 }
-//console.log("tagValue: " + tagValue)
 contenu.dataset.sel = tagValue;;
 document.querySelector('#tags a.sel').classList.remove("sel")
 document.querySelector('#tags a#'+tagValue).classList.add("sel")
@@ -56,7 +55,6 @@ var sortValue = getVar("tri");
 if (sortValue==0) {
 	sortValue = "date";
 }
-//console.log("sortValue: " + sortValue)
 contenu.dataset.tri = sortValue;
 document.querySelector('#sort a.sel').classList.remove("sel")
 document.querySelector('#sort a#'+sortValue).classList.add("sel")
@@ -133,23 +131,14 @@ sort.forEach(function(element, index) {
 	});
 });
 
-// Cliquer
+// Liens
 liens.forEach(function(element, index) {
 	element.addEventListener('focus', event => {
-		opacity = window.getComputedStyle(element.parentNode.parentNode).getPropertyValue("opacity");
-		//console.log("opacity?" + opacity);
-		if (opacity == 0) {
-			element.parentNode.parentNode.style.opacity = .99;
-			element.childNodes[0].style.opacity = 1;
-		}
+		element.parentNode.parentNode.parentNode.classList.add("hover");
+		console.log( element.parentNode.parentNode.parentNode );
 	});
 	element.addEventListener('blur', event => {
-		opacity = window.getComputedStyle(element.parentNode.parentNode).getPropertyValue("opacity");
-		//console.log("opacity!" + opacity);
-		if ( (opacity != "1") && (opacity != 0) ) {
-			element.parentNode.parentNode.style.opacity = 0;
-			element.childNodes[0].style.opacity = 0;
-		}
+		element.parentNode.parentNode.parentNode.classList.remove("hover");
 	});
 	element.addEventListener('click', event => {
 		linkValue = element.href;
@@ -158,5 +147,9 @@ liens.forEach(function(element, index) {
 {% endif %}
 	});
 });
+
+// Window resize
+window.addEventListener('resize', iso.layout() );
+
 
 </script>
