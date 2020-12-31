@@ -118,7 +118,7 @@ for (var i = 0 ; i < tags.length ; i++) {
 //sort.forEach(function(element, index) {
 // forEach ne fonctionne pas avec IE11
 for (var i = 0 ; i < sort.length ; i++) {
-	sort[i].addEventListener('click', event => {
+	sort[i].addEventListener('click', function(event) {
 		event.preventDefault()
 		sortValue = element.id;
 		contenu.dataset.tri = sortValue;
@@ -139,13 +139,13 @@ for (var i = 0 ; i < sort.length ; i++) {
 //liens.forEach(function(element, index) {
 // forEach ne fonctionne pas avec IE11
 for (var i = 0 ; i < liens.length ; i++) {
-	liens[i].addEventListener('focus', event => {
+	liens[i].addEventListener('focus', function(event) {
 		liens[i].parentNode.parentNode.parentNode.classList.add("hover");
 	});
-	liens[i].addEventListener('blur', event => {
+	liens[i].addEventListener('blur', function(event) {
 		liens[i].parentNode.parentNode.parentNode.classList.remove("hover");
 	});
-	liens[i].addEventListener('click', event => {
+	liens[i].addEventListener('click', function(event) {
 		linkValue = liens[i].href;
 {% if site.matomo %}
 		_paq.push(["trackEvent", "Isotope", "Lien", linkValue]);
