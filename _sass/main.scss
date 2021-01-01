@@ -230,6 +230,11 @@ header {
             }
         }
     }
+    h2 + p {
+        @include media(">l") {
+            display: none;
+        }
+    }
     time {
         padding: 0 rem(15) rem(15) rem(15);
         color: #000;
