@@ -1332,7 +1332,7 @@ imagesLoaded( grid, function() {iso.layout();});
 for (var i = 0 ; i < tags.length ; i++) {
 	tags[i].addEventListener('click', function(event) {
 		event.preventDefault()
-		tagValue = element.id;
+		tagValue = this.id;
 		contenu.dataset.sel = tagValue;
 		document.querySelector('#tags a.sel').classList.remove("sel")
 		document.querySelector('#tags a#'+tagValue).classList.add("sel")
@@ -1354,7 +1354,7 @@ for (var i = 0 ; i < tags.length ; i++) {
 for (var i = 0 ; i < sort.length ; i++) {
 	sort[i].addEventListener('click', function(event) {
 		event.preventDefault()
-		sortValue = element.id;
+		sortValue = this.id;
 		contenu.dataset.tri = sortValue;
 		document.querySelector('#sort a.sel').classList.remove("sel")
 		document.querySelector('#sort a#'+sortValue).classList.add("sel")
