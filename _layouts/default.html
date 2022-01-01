@@ -35,7 +35,18 @@
 		{% if extension == "mp4" %}
 					<video type="video/mp4" loop="true" muted="true" autoplay="true" preload="auto" src="{{ item.image | prepend: 'images/' }}" >
 		{% else %}
-					<img src="{{ item.image | prepend: 'images/' }}" alt="">
+			{% if item.image contains "https" %}
+				{% if item.image contains "www.6x8" %}
+		            <picture>
+		              <source srcset="{{ item.image | replace:'jpg','webp' | replace:'jpeg','webp' }}" type="image/webp">
+		              <img src="{{ item.image }}" alt="" width="{{ item.width }}" height="{{ item.height }}">
+		            </picture>
+				{% else %}
+					<img src="{{ item.image }}" alt="" width="{{ item.width }}" height="{{ item.height }}">
+				{% endif %}
+			{% else %}
+					<img src="{{ item.image | prepend: 'images/' }}" alt="" width="{{ item.width }}" height="{{ item.height }}">
+			{% endif %}
 		{% endif %}
 				</figure>
 	{% endif %}
