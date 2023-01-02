@@ -33,7 +33,11 @@
 				<figure aria-labelledby="h2-{{ forloop.index }}" {% if item.description != "" %}aria-describedby="p-{{ forloop.index }}"{% endif %}>
 		{% capture extension %}{{ item.image | slice: -3, 3 }}{% endcapture %}
 		{% if extension == "mp4" %}
+			{% if item.image contains "https" %}
+					<video type="video/mp4" loop="true" muted="true" autoplay="true" preload="auto" src="{{ item.image}}" >
+			{% else %}
 					<video type="video/mp4" loop="true" muted="true" autoplay="true" preload="auto" src="{{ item.image | prepend: 'images/' }}" >
+			{% endif %}
 		{% else %}
 			{% if item.image contains "https" %}
 				{% if item.image contains "www.6x8" %}

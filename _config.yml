@@ -11,7 +11,7 @@ sass:
   
 title: "Bonne année !"
 description: "Retours sur l’année passée pour vous souhaiter une belle année future"
-baseurl: "./"
+baseurl: ""
 url: "https://bonneannee.6x8.org" # replace by your site's url
 
 author: "Arnaud"

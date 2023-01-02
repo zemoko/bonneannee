@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "2023.css",
+	"sources": [
+		"2023.scss"
+	],
+	"sourcesContent": [
+		"header {\n  h1 {\n    &:before {\n      content: \"Bonne année 2023\\00a0!\";\n    }\n  }\n}\n\n@keyframes titre {\n    0%{\n        content:\"\"\n    }\n    20%{\n        content:\"B\"\n    }\n    24%{\n        content:\"Bo\"\n    }\n    28%{\n        content:\"Bon\"\n    }\n    32%{\n        content:\"Bonn\"\n    }\n    36%{\n        content:\"Bonne\"\n    }\n    40%{\n        content:\"Bonne\\00a0\"\n    }\n    44%{\n        content:\"Bonne a\"\n    }\n    48%{\n        content:\"Bonne an\"\n    }\n    52%{\n        content:\"Bonne ann\"\n    }\n    56%{\n        content:\"Bonne anné\"\n    }\n    60%{\n        content:\"Bonne année\"\n    }\n    64%{\n        content:\"Bonne année \"\n    }\n    67%{\n        content:\"Bonne année 2\"\n    }\n    70%{\n        content:\"Bonne année 20\"\n    }\n    73%{\n        content:\"Bonne année 202\"\n    }\n    76%{\n        content:\"Bonne année 2022\"\n    }\n    79%{\n        content:\"Bonne année 202\"\n    }\n    82%{\n        content:\"Bonne année 2023\"\n    }\n    85%{\n        content:\"Bonne année 2023\\00a0\"\n    }\n    88%{\n        content:\"Bonne année 2023\\00a0!\"\n    }\n    100%{\n        content:\"Bonne année 2023\\00a0!\"\n    }\n}"
+	],
+	"names": [],
+	"mappings": "AAAA,AAEI,MAFE,CACJ,EAAE,CACE,MAAM,AAAC,CACP,OAAO,CAAE,wBAAwB,CAClC,AAIL,UAAU,CAAV,KAAU,CACN,EAAE,CACE,OAAO,CAAC,EACZ,CACA,GAAG,CACC,OAAO,CAAC,GACZ,CACA,GAAG,CACC,OAAO,CAAC,IACZ,CACA,GAAG,CACC,OAAO,CAAC,KACZ,CACA,GAAG,CACC,OAAO,CAAC,MACZ,CACA,GAAG,CACC,OAAO,CAAC,OACZ,CACA,GAAG,CACC,OAAO,CAAC,YACZ,CACA,GAAG,CACC,OAAO,CAAC,SACZ,CACA,GAAG,CACC,OAAO,CAAC,UACZ,CACA,GAAG,CACC,OAAO,CAAC,WACZ,CACA,GAAG,CACC,OAAO,CAAC,YACZ,CACA,GAAG,CACC,OAAO,CAAC,aACZ,CACA,GAAG,CACC,OAAO,CAAC,cACZ,CACA,GAAG,CACC,OAAO,CAAC,eACZ,CACA,GAAG,CACC,OAAO,CAAC,gBACZ,CACA,GAAG,CACC,OAAO,CAAC,iBACZ,CACA,GAAG,CACC,OAAO,CAAC,kBACZ,CACA,GAAG,CACC,OAAO,CAAC,iBACZ,CACA,GAAG,CACC,OAAO,CAAC,kBACZ,CACA,GAAG,CACC,OAAO,CAAC,uBACZ,CACA,GAAG,CACC,OAAO,CAAC,wBACZ,CACA,IAAI,CACA,OAAO,CAAC,wBACZ"
+}
