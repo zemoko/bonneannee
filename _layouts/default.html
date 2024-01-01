@@ -41,10 +41,17 @@
 		{% else %}
 			{% if item.image contains "https" %}
 				{% if item.image contains "www.6x8" %}
+					{% if item.image contains ".netlify" %}
+		            <picture>
+		              <source srcset="{{ item.image | replace:'format=jpg','format=webp' }}" type="image/webp">
+		              <img src="{{ item.image }}" alt="" width="{{ item.width }}" height="{{ item.height }}">
+		            </picture>
+					{% else %}
 		            <picture>
 		              <source srcset="{{ item.image | replace:'jpg','webp' | replace:'jpeg','webp' }}" type="image/webp">
 		              <img src="{{ item.image }}" alt="" width="{{ item.width }}" height="{{ item.height }}">
 		            </picture>
+		            {% endif %}
 				{% else %}
 					<img src="{{ item.image }}" alt="" width="{{ item.width }}" height="{{ item.height }}">
 				{% endif %}
