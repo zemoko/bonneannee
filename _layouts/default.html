@@ -28,15 +28,20 @@
 		</div>
 		<div class="grid" id="grid" data-sel="all" data-tri="date">
 {% for item in page.items %}
+  {%- if forloop.index > 6 -%}
+    {%- assign lazyLoad = 'loading="lazy" ' -%}
+  {%- else -%}
+    {%- assign lazyLoad = '' -%}
+  {%- endif -%}
 			<div class="grid-item card{% for tag in item.tags %} {{ tag.value }}{% endfor %}" data-date="{{ item.date }}">
 	{% if item.image %}
 				<figure aria-labelledby="h2-{{ forloop.index }}" {% if item.description != "" %}aria-describedby="p-{{ forloop.index }}"{% endif %}>
 		{% capture extension %}{{ item.image | slice: -3, 3 }}{% endcapture %}
 		{% if extension == "mp4" %}
 			{% if item.image contains "https" %}
-					<video type="video/mp4" loop="true" muted="true" autoplay="true" preload="auto" src="{{ item.image}}" >
+					<video {{ lazyLoad }}type="video/mp4" loop="true" muted="true" autoplay="true" preload="auto" src="{{ item.image}}" >
 			{% else %}
-					<video type="video/mp4" loop="true" muted="true" autoplay="true" preload="auto" src="{{ item.image | prepend: 'images/' }}" >
+					<video {{ lazyLoad }}type="video/mp4" loop="true" muted="true" autoplay="true" preload="auto" src="{{ item.image | prepend: 'images/' }}" >
 			{% endif %}
 		{% else %}
 			{% if item.image contains "https" %}
@@ -44,19 +49,19 @@
 					{% if item.image contains ".netlify" %}
 		            <picture>
 		              <source srcset="{{ item.image | replace:'format=jpg','format=webp' }}" type="image/webp">
-		              <img src="{{ item.image }}" alt="" width="{{ item.width }}" height="{{ item.height }}">
+		              <img {{ lazyLoad }}src="{{ item.image }}" alt="" width="{{ item.width }}" height="{{ item.height }}">
 		            </picture>
 					{% else %}
 		            <picture>
 		              <source srcset="{{ item.image | replace:'jpg','webp' | replace:'jpeg','webp' }}" type="image/webp">
-		              <img src="{{ item.image }}" alt="" width="{{ item.width }}" height="{{ item.height }}">
+		              <img {{ lazyLoad }}src="{{ item.image }}" alt="" width="{{ item.width }}" height="{{ item.height }}">
 		            </picture>
 		            {% endif %}
 				{% else %}
-					<img src="{{ item.image }}" alt="" width="{{ item.width }}" height="{{ item.height }}">
+					<img {{ lazyLoad }}src="{{ item.image }}" alt="" width="{{ item.width }}" height="{{ item.height }}">
 				{% endif %}
 			{% else %}
-					<img src="{{ item.image | prepend: 'images/' }}" alt="" width="{{ item.width }}" height="{{ item.height }}">
+					<img {{ lazyLoad }}src="{{ item.image | prepend: 'images/' }}" alt="" width="{{ item.width }}" height="{{ item.height }}">
 			{% endif %}
 		{% endif %}
 				</figure>
