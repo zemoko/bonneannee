@@ -47,22 +47,54 @@
 <main>
 	<article id="content" data-sel="all" data-sort="date">
 		<div class="panel" role="toolbar" aria-label="Filtrer" aria-controls="grid">
-			<ul id="sort">
-				<li><a id="date" class="sel" tabindex="1" href="?tri=date">Par date</a></li>
-				<li><a  id="random" tabindex="1" href="?tri=random">Aléatoire</a></li>
-			</ul>
-			<ul id="tags">
-				<li><a  id="all" class="sel"tabindex="1" href="?tag=all">Tout</a></li>
+			<fieldset>
+				<legend><span role="image" aria-label="Trier">📅</span></legend>
+				<input type="radio" id="date" name="sort" value="date" tabindex="-1" checked>
+				<label for="date" tabindex="0">Par date</label>
+				<span aria-hidden="true">/</span>
+				<input type="radio" id="random" name="sort" value="random" tabindex="-1">
+				<label for="random" tabindex="0">Aléatoire</label>
+			</fieldset>
+			<fieldset>
+				<legend><span role="image" aria-label="Filtrer par tags">🏷️</span></legend>
+				<input type="radio" id="alltags" name="tag" value="all" tabindex="-1" checked>
+				<label for="alltags" tabindex="0">Tout</label>
 
-				<li><a id="strasbourg" tabindex="1" href="?tag=strasbourg">Strasbourg</a></li>
+				<span aria-hidden="true">/</span>
+				<input type="radio" id="strasbourg" name="tag" value="strasbourg" tabindex="-1">
+				<label for="strasbourg" tabindex="0">Strasbourg</label>
 
-				<li><a id="livres" tabindex="1" href="?tag=livres">Livres</a></li>
+				<span aria-hidden="true">/</span>
+				<input type="radio" id="livres" name="tag" value="livres" tabindex="-1">
+				<label for="livres" tabindex="0">Livres</label>
 
-				<li><a id="j2s" tabindex="1" href="?tag=j2s">Jeux de société</a></li>
+				<span aria-hidden="true">/</span>
+				<input type="radio" id="j2s" name="tag" value="j2s" tabindex="-1">
+				<label for="j2s" tabindex="0">Jeux de société</label>
 
-				<li><a id="webeco" tabindex="1" href="?tag=webeco">Web &amp; Écologie</a></li>
+				<span aria-hidden="true">/</span>
+				<input type="radio" id="webeco" name="tag" value="webeco" tabindex="-1">
+				<label for="webeco" tabindex="0">Web &amp; Écologie</label>
 
-			</ul>
+			</fieldset>			
+			<fieldset>
+				<legend><span role="image" aria-label="Filtrer par provenance">📢</span></legend>
+				<input type="radio" id="allchannels" name="channel" value="all" tabindex="-1" checked>
+				<label for="allchannels" tabindex="0">Tout</label>
+
+				<span aria-hidden="true">/</span>
+				<input type="radio" id="blog" name="channel" value="blog" tabindex="-1">
+				<label for="blog" tabindex="0">Blog</label>
+
+				<span aria-hidden="true">/</span>
+				<input type="radio" id="mastodon" name="channel" value="mastodon" tabindex="-1">
+				<label for="mastodon" tabindex="0">Mastodon</label>
+
+				<span aria-hidden="true">/</span>
+				<input type="radio" id="pixelfed" name="channel" value="pixelfed" tabindex="-1">
+				<label for="pixelfed" tabindex="0">Pixelfed</label>
+
+			</fieldset>	
 		</div>
 		<div class="grid" id="grid" data-sel="all" data-tri="date">
 <div class="grid-item card pixelfed photos strasbourg" data-date="2023-12-30">
@@ -71,9 +103,7 @@
 		
 		
 			
-				
-					<img src="https://pxscdn.com/public/m/_v2/499346133344169540/bc40e5d2a-3c51e6/C9yemYJ7qwkj/YGwrV3EDGvAY6hrwXTmYQ6ZaNBZx3J7OzDZBbOTW.png" alt="" width="1440" height="1080">
-				
+					<img src="images/pixelfed/YGwrV3EDGvAY6hrwXTmYQ6ZaNBZx3J7OzDZBbOTW.png" alt="" width="1440" height="1080">
 			
 		
 				</figure>
@@ -185,9 +215,7 @@
 		
 		
 			
-				
-					<img src="https://pxscdn.com/public/m/_v2/499346133344169540/bc40e5d2a-3c51e6/YhWt7Rg7pe9k/6UoxftROngHRfHDLKQA3TK0WHE5drx3D3LaKxZad.jpg" alt="" width="1440" height="1080">
-				
+					<img src="images/pixelfed/6UoxftROngHRfHDLKQA3TK0WHE5drx3D3LaKxZad.jpg" alt="" width="1440" height="1080">
 			
 		
 				</figure>
@@ -207,9 +235,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://mamot.fr/system/media_attachments/files/111/544/982/828/662/066/original/f66595eb42b9446d.jpeg" alt="" width="303" height="227">
-				
+					<img loading="lazy" src="images/mastodon/f66595eb42b9446d.jpeg" alt="" width="303" height="227">
 			
 		
 				</figure>
@@ -229,9 +255,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://pxscdn.com/public/m/_v2/499346133344169540/bc40e5d2a-3c51e6/LusfLuuiVhtU/SLpHq8IZQdnELfE6yje6GPyIaXTpdt4qRcNyk8Uq.png" alt="" width="1440" height="1080">
-				
+					<img loading="lazy" src="images/pixelfed/SLpHq8IZQdnELfE6yje6GPyIaXTpdt4qRcNyk8Uq.png" alt="" width="1440" height="1080">
 			
 		
 				</figure>
@@ -251,9 +275,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://pxscdn.com/public/m/_v2/499346133344169540/bc40e5d2a-3c51e6/UeV0oqsODOmG/kqBuSW09mvLxmCxwVU4Ql12GgAWPoVw3REGbhRqz.png" alt="" width="922" height="1230">
-				
+					<img loading="lazy" src="images/pixelfed/kqBuSW09mvLxmCxwVU4Ql12GgAWPoVw3REGbhRqz.png" alt="" width="922" height="1230">
 			
 		
 				</figure>
@@ -273,9 +295,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://mamot.fr/system/media_attachments/files/111/509/526/897/994/937/original/a29bbb20e298bc26.jpeg" alt="" width="303" height="227">
-				
+					<img loading="lazy" src="images/mastodon/a29bbb20e298bc26.jpeg" alt="" width="303" height="227">
 			
 		
 				</figure>
@@ -322,9 +342,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://mamot.fr/system/media_attachments/files/111/503/844/329/473/018/original/80aff64d21dee3de.jpeg" alt="" width="303" height="303">
-				
+					<img loading="lazy" src="images/mastodon/80aff64d21dee3de.jpeg" alt="" width="303" height="303">
 			
 		
 				</figure>
@@ -377,9 +395,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://mamot.fr/system/media_attachments/files/111/486/866/233/282/922/original/de5046d6a0a61e04.png" alt="" width="303" height="303">
-				
+					<img loading="lazy" src="images/mastodon/de5046d6a0a61e04.png" alt="" width="303" height="303">
 			
 		
 				</figure>
@@ -410,9 +426,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://pxscdn.com/public/m/_v2/499346133344169540/bf4779419-8cf74f/5xB8hWu8Z8G5/xfSgenMk0RE6LsDaSqV3RzwbwTnKyDMWBECzer61.png" alt="" width="922" height="1230">
-				
+					<img loading="lazy" src="images/pixelfed/xfSgenMk0RE6LsDaSqV3RzwbwTnKyDMWBECzer61.png" alt="" width="922" height="1230">
 			
 		
 				</figure>
@@ -492,9 +506,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://mamot.fr/system/media_attachments/files/111/363/648/277/626/559/original/f9b73c0c1ef712d0.jpeg" alt="" width="303" height="300">
-				
+					<img loading="lazy" src="images/mastodon/f9b73c0c1ef712d0.jpeg" alt="" width="303" height="300">
 			
 		
 				</figure>
@@ -514,9 +526,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://mamot.fr/system/media_attachments/files/111/343/116/442/122/407/original/6e0048aea6127aec.jpeg" alt="" width="303" height="303">
-				
+					<img loading="lazy" src="images/mastodon/6e0048aea6127aec.jpeg" alt="" width="303" height="303">
 			
 		
 				</figure>
@@ -536,9 +546,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://mamot.fr/system/media_attachments/files/111/342/257/228/142/013/original/97b19de677fbaec5.jpeg" alt="" width="303" height="227">
-				
+					<img loading="lazy" src="images/mastodon/97b19de677fbaec5.jpeg" alt="" width="303" height="227">
 			
 		
 				</figure>
@@ -677,9 +685,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://pxscdn.com/public/m/_v2/499346133344169540/f1538e3aa-7b3151/SEhi8hZOcVK3/E56rFpQJ1UMiqZAgOepXPt3E6OkThLiHLNktSToU.png" alt="" width="924" height="693">
-				
+					<img loading="lazy" src="images/pixelfed/E56rFpQJ1UMiqZAgOepXPt3E6OkThLiHLNktSToU.png" alt="" width="924" height="693">
 			
 		
 				</figure>
@@ -710,9 +716,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://pxscdn.com/public/m/_v2/499346133344169540/f1538e3aa-7b3151/ZPgKpCQAm1OZ/ZyiWxGiIjfL1rEedDfd0i1zbm6GESXijCGHW42Vh.png" alt="" width="922" height="1230">
-				
+					<img loading="lazy" src="images/pixelfed/ZyiWxGiIjfL1rEedDfd0i1zbm6GESXijCGHW42Vh.png" alt="" width="922" height="1230">
 			
 		
 				</figure>
@@ -759,9 +763,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://mamot.fr/system/media_attachments/files/111/159/148/671/178/456/original/1f3b65cb1cccbd83.jpeg" alt="" width="303" height="303">
-				
+					<img loading="lazy" src="images/mastodon/1f3b65cb1cccbd83.jpeg" alt="" width="303" height="303">
 			
 		
 				</figure>
@@ -835,9 +837,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://mamot.fr/system/media_attachments/files/111/152/691/798/976/488/original/3e3017aa633d199e.png" alt="" width="303" height="303">
-				
+					<img loading="lazy" src="images/mastodon/3e3017aa633d199e.png" alt="" width="303" height="303">
 			
 		
 				</figure>
@@ -857,9 +857,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://mamot.fr/system/media_attachments/files/111/149/368/519/539/137/original/3c766f39bfbb6703.jpeg" alt="" width="303" height="227">
-				
+					<img loading="lazy" src="images/mastodon/3c766f39bfbb6703.jpeg" alt="" width="303" height="227">
 			
 		
 				</figure>
@@ -879,9 +877,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://mamot.fr/system/media_attachments/files/111/107/066/653/320/482/original/08a50f04c3127658.png" alt="" width="303" height="385">
-				
+					<img loading="lazy" src="images/mastodon/08a50f04c3127658.png" alt="" width="303" height="385">
 			
 		
 				</figure>
@@ -928,9 +924,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://pxscdn.com/public/m/_v2/499346133344169540/ea59ea880-d2aad0/pS6rASNOKR4K/xS0m0ALQDI5ChiETlpswcpOYoRpp96P1QmMPZvRF.jpg" alt="" width="1440" height="1080">
-				
+					<img loading="lazy" src="images/pixelfed/xS0m0ALQDI5ChiETlpswcpOYoRpp96P1QmMPZvRF.jpg" alt="" width="1440" height="1080">
 			
 		
 				</figure>
@@ -950,9 +944,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://pxscdn.com/public/m/_v2/499346133344169540/ea59ea880-d2aad0/v9EPzjdBG7yN/qdRxWODVjouaA3tEDWrwLgyZ6VMyH4Mgi6X2O8dZ.jpg" alt="" width="1440" height="1080">
-				
+					<img loading="lazy" src="images/pixelfed/qdRxWODVjouaA3tEDWrwLgyZ6VMyH4Mgi6X2O8dZ.jpg" alt="" width="1440" height="1080">
 			
 		
 				</figure>
@@ -1167,9 +1159,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://pxscdn.com/public/m/_v2/499346133344169540/c51ea9690-856390/Vl8YI6QhEmhk/ugV6qmmIYOoMNfAdUSoOgLt6hK5M61XtINWz9MnI.jpg" alt="" width="1440" height="1080">
-				
+					<img loading="lazy" src="images/pixelfed/ugV6qmmIYOoMNfAdUSoOgLt6hK5M61XtINWz9MnI.jpg" alt="" width="1440" height="1080">
 			
 		
 				</figure>
@@ -1189,9 +1179,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://mamot.fr/system/media_attachments/files/110/904/444/133/801/702/original/9e70b3e8d93918fa.jpeg" alt="" width="303" height="303">
-				
+					<img loading="lazy" src="images/mastodon/9e70b3e8d93918fa.jpeg" alt="" width="303" height="303">
 			
 		
 				</figure>
@@ -1238,9 +1226,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://pxscdn.com/public/m/_v2/499346133344169540/c51ea9690-856390/kHH17PscWoFa/Bk7mDwQyMF1c5ojsnfOzU85eVOuzfyXXYilkQUTs.jpg" alt="" width="1440" height="1080">
-				
+					<img loading="lazy" src="images/pixelfed/Bk7mDwQyMF1c5ojsnfOzU85eVOuzfyXXYilkQUTs.jpg" alt="" width="1440" height="1080">
 			
 		
 				</figure>
@@ -1287,9 +1273,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://pxscdn.com/public/m/_v2/499346133344169540/c51ea9690-856390/BQd2zq5yhksR/VDpfb5FOpfADsWitztRHvPLOXmtAN1qviMu9SqNU.png" alt="" width="904" height="678">
-				
+					<img loading="lazy" src="images/pixelfed/VDpfb5FOpfADsWitztRHvPLOXmtAN1qviMu9SqNU.png" alt="" width="904" height="678">
 			
 		
 				</figure>
@@ -1313,7 +1297,7 @@
 					
 		            <picture>
 		              <source srcset="https://www.6x8.org/images/2023/03/2023-03-18-cp7ojflizid.webp" type="image/webp">
-		              <img loading="lazy" src="https://www.6x8.org/images/2023/03/2023-03-18-cp7ojflizid.jpg" alt="" width="" height="">
+		              <img loading="lazy" src="https://www.6x8.org/images/2023/03/2023-03-18-cp7ojflizid.jpg" alt="" width="320" height="320">
 		            </picture>
 		            
 				
@@ -1336,9 +1320,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://mamot.fr/system/media_attachments/files/110/877/796/655/906/263/original/99662ff175c862b3.jpeg" alt="" width="1663" height="1247">
-				
+					<img loading="lazy" src="images/mastodon/99662ff175c862b3.jpeg" alt="" width="1663" height="1247">
 			
 		
 				</figure>
@@ -1358,9 +1340,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://mamot.fr/system/media_attachments/files/110/859/865/098/405/830/original/aba258c613bf26f3.jpeg" alt="" width="303" height="497">
-				
+					<img loading="lazy" src="images/mastodon/aba258c613bf26f3.jpeg" alt="" width="303" height="497">
 			
 		
 				</figure>
@@ -1380,9 +1360,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://pxscdn.com/public/m/_v2/499346133344169540/c51ea9690-856390/RR0DFohGt90w/RYBDUod12NcfVbdLSQBsLOtl52QiZbAtlXqYMkyi.png" alt="" width="904" height="678">
-				
+					<img loading="lazy" src="images/pixelfed/RYBDUod12NcfVbdLSQBsLOtl52QiZbAtlXqYMkyi.png" alt="" width="904" height="678">
 			
 		
 				</figure>
@@ -1673,9 +1651,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://pxscdn.com/public/m/_v2/499346133344169540/bf0f52ff2-92677b/hGt1xfMCGlch/zlmZF65ry3pCfTc6jUVX0JzN2v6Wa49QRoF94pkR.png" alt="" width="904" height="678">
-				
+					<img loading="lazy" src="images/pixelfed/zlmZF65ry3pCfTc6jUVX0JzN2v6Wa49QRoF94pkR.png" alt="" width="904" height="678">
 			
 		
 				</figure>
@@ -1749,9 +1725,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://mamot.fr/system/media_attachments/files/110/679/019/653/802/399/original/a8620c40813acf5a.png" alt="" width="303" height="303">
-				
+					<img loading="lazy" src="images/mastodon/a8620c40813acf5a.png" alt="" width="303" height="303">
 			
 		
 				</figure>
@@ -1798,9 +1772,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://mamot.fr/system/media_attachments/files/110/640/960/699/400/561/original/48e2703ad4111cb4.jpeg" alt="" width="303" height="227">
-				
+					<img loading="lazy" src="images/mastodon/48e2703ad4111cb4.jpeg" alt="" width="303" height="227">
 			
 		
 				</figure>
@@ -1955,9 +1927,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://pxscdn.com/public/m/_v2/499346133344169540/c537ce87c-f5971d/HUYSOvrV9OZV/O8AB1wX7ptaSNsnJk3jNtaeCEaxJVeGL5FdFcA9N.png" alt="" width="905" height="1206">
-				
+					<img loading="lazy" src="images/pixelfed/O8AB1wX7ptaSNsnJk3jNtaeCEaxJVeGL5FdFcA9N.png" alt="" width="905" height="1206">
 			
 		
 				</figure>
@@ -2096,9 +2066,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://pxscdn.com/public/m/_v2/499346133344169540/c537ce87c-f5971d/QizlOVCL6F92/fwes1WYhgDmZZ3rTIzwbH8lEc1Mv8EEjFvToCBqf.jpg" alt="" width="1013" height="1450">
-				
+					<img loading="lazy" src="images/pixelfed/fwes1WYhgDmZZ3rTIzwbH8lEc1Mv8EEjFvToCBqf.jpg" alt="" width="1013" height="1450">
 			
 		
 				</figure>
@@ -2118,9 +2086,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://pxscdn.com/public/m/_v2/499346133344169540/9e2db7367-e375b7/xdGettinHEhI/Sf1dl4j3s75TDHdF15a9VCpH1sxkSil9yQBa03dk.png" alt="" width="904" height="678">
-				
+					<img loading="lazy" src="images/pixelfed/Sf1dl4j3s75TDHdF15a9VCpH1sxkSil9yQBa03dk.png" alt="" width="904" height="678">
 			
 		
 				</figure>
@@ -2167,9 +2133,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://pxscdn.com/public/m/_v2/499346133344169540/9e2db7367-e375b7/cs720hTggxA7/4w6SKcgelTe4kfpGhrNKLsYKFIu4E5RyG5fdxa8k.jpg" alt="" width="1442" height="1080">
-				
+					<img loading="lazy" src="images/pixelfed/4w6SKcgelTe4kfpGhrNKLsYKFIu4E5RyG5fdxa8k.jpg" alt="" width="1442" height="1080">
 			
 		
 				</figure>
@@ -2216,9 +2180,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://pxscdn.com/public/m/_v2/499346133344169540/c537ce87c-f5971d/NF5kWJHi3Mqr/zc34VA2UPc2AesIJ24T6Dcc5kVLI63AQR9LZ4GFc.png" alt="" width="906" height="1206">
-				
+					<img loading="lazy" src="images/pixelfed/zc34VA2UPc2AesIJ24T6Dcc5kVLI63AQR9LZ4GFc.png" alt="" width="906" height="1206">
 			
 		
 				</figure>
@@ -2357,9 +2319,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://pxscdn.com/public/m/_v2/499346133344169540/9e2db7367-e375b7/pVvXesQVwK63/u0HkMhSdu9MXQKxP0SpMWk2rgJq72WRcEuPwdhm2.png" alt="" width="1008" height="1350">
-				
+					<img loading="lazy" src="images/pixelfed/u0HkMhSdu9MXQKxP0SpMWk2rgJq72WRcEuPwdhm2.png" alt="" width="1008" height="1350">
 			
 		
 				</figure>
@@ -2433,9 +2393,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://pxscdn.com/public/m/_v2/499346133344169540/42a8ecf32-5a8865/inn1eufvqIuS/DTgOoAQ8uiAWwQIcv83k5tq9rp1UndcPsfY6RVhh.png" alt="" width="1080" height="1080">
-				
+					<img loading="lazy" src="images/pixelfed/DTgOoAQ8uiAWwQIcv83k5tq9rp1UndcPsfY6RVhh.png" alt="" width="1080" height="1080">
 			
 		
 				</figure>
@@ -2466,9 +2424,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://mamot.fr/system/media_attachments/files/110/066/485/124/028/953/original/27eed0e4bbcd04c6.jpeg" alt="" width="303" height="227">
-				
+					<img loading="lazy" src="images/mastodon/27eed0e4bbcd04c6.jpeg" alt="" width="303" height="227">
 			
 		
 				</figure>
@@ -2499,9 +2455,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://mamot.fr/system/media_attachments/files/110/039/666/197/487/240/original/d47a21a6a90ea2f2.jpeg" alt="" width="303" height="404">
-				
+					<img loading="lazy" src="images/mastodon/d47a21a6a90ea2f2.jpeg" alt="" width="303" height="404">
 			
 		
 				</figure>
@@ -2548,9 +2502,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://mamot.fr/system/media_attachments/files/110/026/096/775/080/297/original/0dda7bb1a7bf3ab1.jpeg" alt="" width="1663" height="1247">
-				
+					<img loading="lazy" src="images/mastodon/0dda7bb1a7bf3ab1.jpeg" alt="" width="1663" height="1247">
 			
 		
 				</figure>
@@ -2624,9 +2576,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://pxscdn.com/public/m/_v2/499346133344169540/0fca8ea69-e1c06b/I2gncuDhKzmL/4gCjWBJCAjhigrVZeVeYbZ0qaQCJadtMGUeTY6O9.jpg" alt="" width="1080" height="1080">
-				
+					<img loading="lazy" src="images/pixelfed/4gCjWBJCAjhigrVZeVeYbZ0qaQCJadtMGUeTY6O9.jpg" alt="" width="1080" height="1080">
 			
 		
 				</figure>
@@ -2749,9 +2699,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://pxscdn.com/public/m/_v2/499346133344169540/0fca8ea69-e1c06b/UXCYuBUtTqhF/kJNuTmkinSGlvY73lTbJZh8AH2uB3hmqEGZzQyHg.png" alt="" width="1080" height="1080">
-				
+					<img loading="lazy" src="images/pixelfed/kJNuTmkinSGlvY73lTbJZh8AH2uB3hmqEGZzQyHg.png" alt="" width="1080" height="1080">
 			
 		
 				</figure>
@@ -2840,7 +2788,7 @@
 					
 		            <picture>
 		              <source srcset="https://www.6x8.org/images/2023/01/31-Bonus.webp" type="image/webp">
-		              <img loading="lazy" src="https://www.6x8.org/images/2023/01/31-Bonus.jpeg" alt="" width="300" height="235">
+		              <img loading="lazy" src="https://www.6x8.org/images/2023/01/31-Bonus.jpeg" alt="" width="792" height="516">
 		            </picture>
 		            
 				
@@ -2971,9 +2919,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://pxscdn.com/public/m/_v2/499346133344169540/3079cad20-917577/VTV5ehXgX3kp/NtSqTgytOUVEBrgzzydvjTMqJvsT0EkeYA9zsJVH.png" alt="" width="1008" height="1350">
-				
+					<img loading="lazy" src="images/pixelfed/NtSqTgytOUVEBrgzzydvjTMqJvsT0EkeYA9zsJVH.png" alt="" width="1008" height="1350">
 			
 		
 				</figure>
@@ -3020,9 +2966,7 @@
 		
 		
 			
-				
-					<img loading="lazy" src="https://pxscdn.com/public/m/_v2/499346133344169540/3079cad20-917577/4INl6RdApUy4/Vowwgi44LbFEMyRtoONS2X4wOoucctX12rSAEeLz.png" alt="" width="1080" height="1080">
-				
+					<img loading="lazy" src="images/pixelfed/Vowwgi44LbFEMyRtoONS2X4wOoucctX12rSAEeLz.png" alt="" width="1080" height="1080">
 			
 		
 				</figure>
@@ -3106,6 +3050,9 @@
 		<li><a class="mastodon" href="https://mamot.fr/@zemoko" target="_blank" title="Moko sur Mastodon (nouvelle fenêtre)"><span class="sr-only">Mastodon</span></a></li>
 
 
+		<li><a class="pixelfed" href="https://pixelfed.social/@zemoko" target="_blank" title="Moko sur Pixelfed (nouvelle fenêtre)"><span class="sr-only">Pixelfed</span></a></li>
+
+
 		<li><a class="instagram" href="http://instagram.com/zemoko" target="_blank" title="Moko sur Instagram (nouvelle fenêtre)"><span class="sr-only">Instagram</span></a></li>
 
 
@@ -3123,41 +3070,114 @@
 <script>
 var grid = document.querySelector('.grid');
 var contenu = document.querySelector('#content');
-var tags = document.querySelectorAll('#tags a');
-var sort = document.querySelectorAll('#sort a');
+var labels = document.querySelectorAll('fieldset label');
+
+var sort = document.querySelectorAll('input[name=sort]');
+var tags = document.querySelectorAll('input[name=tag]');
+var channels = document.querySelectorAll('input[name=channel]');
 var liens = document.querySelectorAll('.card a');
 
 var is_mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 var transformsEnabledValue = (is_mobile) ? true : false;
 
-function getVar(key, default_) {
-	if (default_==null) default_=0;
-	key = key.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-	var regex = new RegExp("[\\?&#]"+key+"=([^&#]*)");
-	var qs = regex.exec(window.location.href);
-	if(qs == null) return default_; else return qs[1];
-}
-var tagValue = getVar("tag");
-if (tagValue==0) {
-	tagValue = "all";
-}
-contenu.dataset.sel = tagValue;;
-document.querySelector('#tags a.sel').classList.remove("sel")
-document.querySelector('#tags a#'+tagValue).classList.add("sel")
+// Gérer le tri
 
-var sortValue = getVar("tri");
-if (sortValue==0) {
-	sortValue = "date";
-}
+var sortValue = document.querySelector('input[name=sort]:checked').value
 contenu.dataset.tri = sortValue;
-document.querySelector('#sort a.sel').classList.remove("sel")
-document.querySelector('#sort a#'+sortValue).classList.add("sel")
+
+function sortCards(sortValue) {
+		contenu.dataset.tri = sortValue;
+		if (sortValue=="random") {
+			iso.shuffle();
+		} else {
+			iso.arrange({ sortBy: sortValue });
+		}
+
+		_paq.push(["trackEvent", "Isotope", "Trier", sortValue]);
+
+}
+
+for (var i = 0 ; i < sort.length ; i++) {
+	sort[i].addEventListener("change", (event) => {
+		sortValue = event.target.value;
+		sortCards(sortValue);
+	});
+};
+
+// Filrer par tags ou par channels
+
+function getFilter(tagValue, channelValue) {
+	if (tagValue=="all") {
+		if (channelValue=="all") {
+			filterValue = "";
+		} else {
+			filterValue = "."+channelValue;
+		}
+	} else {
+		if (channelValue=="all") {
+			filterValue = "."+tagValue;
+		}	else {
+			filterValue = "."+tagValue+"."+channelValue;
+		}
+	}
+	return filterValue;
+}
+var tagValue = document.querySelector('input[name=tag]:checked').value
+var channelValue = document.querySelector('input[name=channel]:checked').value
+filterValue = getFilter(tagValue,channelValue);
+contenu.dataset.sel = filterValue;
+
+function filterCards(tagValue, channelValue) {
+	filterValue = getFilter(tagValue,channelValue);
+	contenu.dataset.sel = filterValue;
+	iso.arrange({ filter: filterValue });
+
+		_paq.push(["trackEvent", "Isotope", "Filtrer", filterValue]);
+
+}
+
+for (var i = 0 ; i < tags.length ; i++) {
+	tags[i].addEventListener("change", (event) => {
+		tagValue = event.target.value;
+		filterCards(tagValue,channelValue);
+	});
+};
+for (var i = 0 ; i < channels.length ; i++) {
+	channels[i].addEventListener("change", (event) => {
+		channelValue = event.target.value;
+		console.log( channelValue );
+		filterCards(tagValue,channelValue);
+	});
+};
+
+// Cocher les input/radio avec leurs labels associés
+for (var i = 0 ; i < labels.length ; i++) {
+	labels[i].addEventListener('keydown', function(event) {
+  	if (event.code == 'Enter') {
+  		inputName = event.target.getAttribute('for');
+  		document.getElementById( inputName ).checked = true;
+			switch ( document.getElementById( inputName ).getAttribute('name') ) {
+  			case 'sort':
+    			sortCards(inputName);
+    			break;
+  			case 'tag':
+    			filterCards(inputName,channelValue);
+    			break;
+  			case 'channel':
+    			filterCards(tagValue,inputName);
+    			break;
+			}
+  	}
+	});
+};
+
+// Isotope
 
 var iso = new Isotope( grid, {
   // options
   itemSelector: '.grid-item',
   layoutMode: "masonry",
-  filter: ((tagValue=="all") ? "" : "."+tagValue ),
+  filter: filterValue,
   sortBy: sortValue,
   transformsEnabled: transformsEnabledValue,
   sortAscending: false,
@@ -3181,49 +3201,6 @@ imagesLoaded( grid, function() {iso.layout();});
     g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
   })();
 <!-- End Matomo Code -->
-
-// Filtrer
-//tags.forEach(function(element, index) {
-// forEach ne fonctionne pas avec IE11
-for (var i = 0 ; i < tags.length ; i++) {
-	tags[i].addEventListener('click', function(event) {
-		event.preventDefault()
-		tagValue = this.id;
-		contenu.dataset.sel = tagValue;
-		document.querySelector('#tags a.sel').classList.remove("sel")
-		document.querySelector('#tags a#'+tagValue).classList.add("sel")
-		if (tagValue=="all") {
-			tagValue = "";
-		} else {
-			tagValue = "." + tagValue;
-		}
-		iso.arrange({ filter: tagValue });
-
-		_paq.push(["trackEvent", "Isotope", "Filtrer", tagValue]);
-
-	});
-};
-
-// Trier
-//sort.forEach(function(element, index) {
-// forEach ne fonctionne pas avec IE11
-for (var i = 0 ; i < sort.length ; i++) {
-	sort[i].addEventListener('click', function(event) {
-		event.preventDefault()
-		sortValue = this.id;
-		contenu.dataset.tri = sortValue;
-		document.querySelector('#sort a.sel').classList.remove("sel")
-		document.querySelector('#sort a#'+sortValue).classList.add("sel")
-		if (sortValue=="random") {
-			iso.shuffle();
-		} else {
-			iso.arrange({ sortBy: sortValue });
-		}
-
-		_paq.push(["trackEvent", "Isotope", "Trier", tagValue]);
-
-	});
-};
 
 // Liens
 //liens.forEach(function(element, index) {

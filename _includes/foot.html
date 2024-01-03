@@ -8,6 +8,9 @@
 {% if site.mastodon_username %}
 		<li><a class="mastodon" href="https://mamot.fr/@{{ site.mastodon_username }}" target="_blank" title="{{ site.alias }} sur Mastodon (nouvelle fenêtre)"><span class="sr-only">Mastodon</span></a></li>
 {% endif %}
+{% if site.pixelfed_username %}
+		<li><a class="pixelfed" href="https://pixelfed.social/@{{ site.pixelfed_username }}" target="_blank" title="{{ site.alias }} sur Pixelfed (nouvelle fenêtre)"><span class="sr-only">Pixelfed</span></a></li>
+{% endif %}
 {% if site.instagram_username %}
 		<li><a class="instagram" href="http://instagram.com/{{ site.instagram_username }}" target="_blank" title="{{ site.alias }} sur Instagram (nouvelle fenêtre)"><span class="sr-only">Instagram</span></a></li>
 {% endif %}
@@ -26,41 +29,114 @@
 <script>
 var grid = document.querySelector('.grid');
 var contenu = document.querySelector('#content');
-var tags = document.querySelectorAll('#tags a');
-var sort = document.querySelectorAll('#sort a');
+var labels = document.querySelectorAll('fieldset label');
+
+var sort = document.querySelectorAll('input[name=sort]');
+var tags = document.querySelectorAll('input[name=tag]');
+var channels = document.querySelectorAll('input[name=channel]');
 var liens = document.querySelectorAll('.card a');
 
 var is_mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 var transformsEnabledValue = (is_mobile) ? true : false;
 
-function getVar(key, default_) {
-	if (default_==null) default_=0;
-	key = key.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-	var regex = new RegExp("[\\?&#]"+key+"=([^&#]*)");
-	var qs = regex.exec(window.location.href);
-	if(qs == null) return default_; else return qs[1];
-}
-var tagValue = getVar("tag");
-if (tagValue==0) {
-	tagValue = "all";
-}
-contenu.dataset.sel = tagValue;;
-document.querySelector('#tags a.sel').classList.remove("sel")
-document.querySelector('#tags a#'+tagValue).classList.add("sel")
+// Gérer le tri
 
-var sortValue = getVar("tri");
-if (sortValue==0) {
-	sortValue = "date";
-}
+var sortValue = document.querySelector('input[name=sort]:checked').value
 contenu.dataset.tri = sortValue;
-document.querySelector('#sort a.sel').classList.remove("sel")
-document.querySelector('#sort a#'+sortValue).classList.add("sel")
+
+function sortCards(sortValue) {
+		contenu.dataset.tri = sortValue;
+		if (sortValue=="random") {
+			iso.shuffle();
+		} else {
+			iso.arrange({ sortBy: sortValue });
+		}
+{% if site.matomo %}
+		_paq.push(["trackEvent", "Isotope", "Trier", sortValue]);
+{% endif %}
+}
+
+for (var i = 0 ; i < sort.length ; i++) {
+	sort[i].addEventListener("change", (event) => {
+		sortValue = event.target.value;
+		sortCards(sortValue);
+	});
+};
+
+// Filrer par tags ou par channels
+
+function getFilter(tagValue, channelValue) {
+	if (tagValue=="all") {
+		if (channelValue=="all") {
+			filterValue = "";
+		} else {
+			filterValue = "."+channelValue;
+		}
+	} else {
+		if (channelValue=="all") {
+			filterValue = "."+tagValue;
+		}	else {
+			filterValue = "."+tagValue+"."+channelValue;
+		}
+	}
+	return filterValue;
+}
+var tagValue = document.querySelector('input[name=tag]:checked').value
+var channelValue = document.querySelector('input[name=channel]:checked').value
+filterValue = getFilter(tagValue,channelValue);
+contenu.dataset.sel = filterValue;
+
+function filterCards(tagValue, channelValue) {
+	filterValue = getFilter(tagValue,channelValue);
+	contenu.dataset.sel = filterValue;
+	iso.arrange({ filter: filterValue });
+{% if site.matomo %}
+		_paq.push(["trackEvent", "Isotope", "Filtrer", filterValue]);
+{% endif %}
+}
+
+for (var i = 0 ; i < tags.length ; i++) {
+	tags[i].addEventListener("change", (event) => {
+		tagValue = event.target.value;
+		filterCards(tagValue,channelValue);
+	});
+};
+for (var i = 0 ; i < channels.length ; i++) {
+	channels[i].addEventListener("change", (event) => {
+		channelValue = event.target.value;
+		console.log( channelValue );
+		filterCards(tagValue,channelValue);
+	});
+};
+
+// Cocher les input/radio avec leurs labels associés
+for (var i = 0 ; i < labels.length ; i++) {
+	labels[i].addEventListener('keydown', function(event) {
+  	if (event.code == 'Enter') {
+  		inputName = event.target.getAttribute('for');
+  		document.getElementById( inputName ).checked = true;
+			switch ( document.getElementById( inputName ).getAttribute('name') ) {
+  			case 'sort':
+    			sortCards(inputName);
+    			break;
+  			case 'tag':
+    			filterCards(inputName,channelValue);
+    			break;
+  			case 'channel':
+    			filterCards(tagValue,inputName);
+    			break;
+			}
+  	}
+	});
+};
+
+// Isotope
 
 var iso = new Isotope( grid, {
   // options
   itemSelector: '.grid-item',
   layoutMode: "masonry",
-  filter: ((tagValue=="all") ? "" : "."+tagValue ),
+  filter: filterValue,
   sortBy: sortValue,
   transformsEnabled: transformsEnabledValue,
   sortAscending: false,
@@ -84,49 +160,6 @@ imagesLoaded( grid, function() {iso.layout();});
     g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
   })();
 <!-- End Matomo Code -->
-
-// Filtrer
-//tags.forEach(function(element, index) {
-// forEach ne fonctionne pas avec IE11
-for (var i = 0 ; i < tags.length ; i++) {
-	tags[i].addEventListener('click', function(event) {
-		event.preventDefault()
-		tagValue = this.id;
-		contenu.dataset.sel = tagValue;
-		document.querySelector('#tags a.sel').classList.remove("sel")
-		document.querySelector('#tags a#'+tagValue).classList.add("sel")
-		if (tagValue=="all") {
-			tagValue = "";
-		} else {
-			tagValue = "." + tagValue;
-		}
-		iso.arrange({ filter: tagValue });
-{% if site.matomo %}
-		_paq.push(["trackEvent", "Isotope", "Filtrer", tagValue]);
-{% endif %}
-	});
-};
-
-// Trier
-//sort.forEach(function(element, index) {
-// forEach ne fonctionne pas avec IE11
-for (var i = 0 ; i < sort.length ; i++) {
-	sort[i].addEventListener('click', function(event) {
-		event.preventDefault()
-		sortValue = this.id;
-		contenu.dataset.tri = sortValue;
-		document.querySelector('#sort a.sel').classList.remove("sel")
-		document.querySelector('#sort a#'+sortValue).classList.add("sel")
-		if (sortValue=="random") {
-			iso.shuffle();
-		} else {
-			iso.arrange({ sortBy: sortValue });
-		}
-{% if site.matomo %}
-		_paq.push(["trackEvent", "Isotope", "Trier", tagValue]);
-{% endif %}
-	});
-};
 
 // Liens
 //liens.forEach(function(element, index) {

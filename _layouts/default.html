@@ -15,16 +15,34 @@
 <main>
 	<article id="content" data-sel="all" data-sort="date">
 		<div class="panel" role="toolbar" aria-label="Filtrer" aria-controls="grid">
-			<ul id="sort">
-				<li><a id="date" class="sel" tabindex="1" href="?tri=date">Par date</a></li>
-				<li><a  id="random" tabindex="1" href="?tri=random">Aléatoire</a></li>
-			</ul>
-			<ul id="tags">
-				<li><a  id="all" class="sel"tabindex="1" href="?tag=all">Tout</a></li>
+			<fieldset>
+				<legend><span role="image" aria-label="Trier">📅</span></legend>
+				<input type="radio" id="date" name="sort" value="date" tabindex="-1" checked>
+				<label for="date" tabindex="0">Par date</label>
+				<span aria-hidden="true">/</span>
+				<input type="radio" id="random" name="sort" value="random" tabindex="-1">
+				<label for="random" tabindex="0">Aléatoire</label>
+			</fieldset>
+			<fieldset>
+				<legend><span role="image" aria-label="Filtrer par tags">🏷️</span></legend>
+				<input type="radio" id="alltags" name="tag" value="all" tabindex="-1" checked>
+				<label for="alltags" tabindex="0">Tout</label>
 {% for tag in page.tags %}
-				<li><a id="{{ tag.value }}" tabindex="1" href="?tag={{ tag.value }}">{{ tag.label }}</a></li>
+				<span aria-hidden="true">/</span>
+				<input type="radio" id="{{ tag.value }}" name="tag" value="{{ tag.value }}" tabindex="-1">
+				<label for="{{ tag.value }}" tabindex="0">{{ tag.label }}</label>
 {% endfor %}
-			</ul>
+			</fieldset>			
+			<fieldset>
+				<legend><span role="image" aria-label="Filtrer par provenance">📢</span></legend>
+				<input type="radio" id="allchannels" name="channel" value="all" tabindex="-1" checked>
+				<label for="allchannels" tabindex="0">Tout</label>
+{% for channel in page.channels %}
+				<span aria-hidden="true">/</span>
+				<input type="radio" id="{{ channel.value }}" name="channel" value="{{ channel.value }}" tabindex="-1">
+				<label for="{{ channel.value }}" tabindex="0">{{ channel.label }}</label>
+{% endfor %}
+			</fieldset>	
 		</div>
 		<div class="grid" id="grid" data-sel="all" data-tri="date">
 {% for item in page.items %}

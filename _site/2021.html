@@ -47,24 +47,46 @@
 <main>
 	<article id="content" data-sel="all" data-sort="date">
 		<div class="panel" role="toolbar" aria-label="Filtrer" aria-controls="grid">
-			<ul id="sort">
-				<li><a id="date" class="sel" tabindex="1" href="?tri=date">Par date</a></li>
-				<li><a  id="random" tabindex="1" href="?tri=random">Aléatoire</a></li>
-			</ul>
-			<ul id="tags">
-				<li><a  id="all" class="sel"tabindex="1" href="?tag=all">Tout</a></li>
+			<fieldset>
+				<legend><span role="image" aria-label="Trier">📅</span></legend>
+				<input type="radio" id="date" name="sort" value="date" tabindex="-1" checked>
+				<label for="date" tabindex="0">Par date</label>
+				<span aria-hidden="true">/</span>
+				<input type="radio" id="random" name="sort" value="random" tabindex="-1">
+				<label for="random" tabindex="0">Aléatoire</label>
+			</fieldset>
+			<fieldset>
+				<legend><span role="image" aria-label="Filtrer par tags">🏷️</span></legend>
+				<input type="radio" id="alltags" name="tag" value="all" tabindex="-1" checked>
+				<label for="alltags" tabindex="0">Tout</label>
 
-				<li><a id="escapades" tabindex="1" href="?tag=escapades">Escapades</a></li>
+				<span aria-hidden="true">/</span>
+				<input type="radio" id="escapades" name="tag" value="escapades" tabindex="-1">
+				<label for="escapades" tabindex="0">Escapades</label>
 
-				<li><a id="jeux2societe" tabindex="1" href="?tag=jeux2societe">Jeux de société</a></li>
+				<span aria-hidden="true">/</span>
+				<input type="radio" id="jeux2societe" name="tag" value="jeux2societe" tabindex="-1">
+				<label for="jeux2societe" tabindex="0">Jeux de société</label>
 
-				<li><a id="livres" tabindex="1" href="?tag=livres">Livres</a></li>
+				<span aria-hidden="true">/</span>
+				<input type="radio" id="livres" name="tag" value="livres" tabindex="-1">
+				<label for="livres" tabindex="0">Livres</label>
 
-				<li><a id="miam" tabindex="1" href="?tag=miam">Miam</a></li>
+				<span aria-hidden="true">/</span>
+				<input type="radio" id="miam" name="tag" value="miam" tabindex="-1">
+				<label for="miam" tabindex="0">Miam</label>
 
-				<li><a id="web" tabindex="1" href="?tag=web">Web</a></li>
+				<span aria-hidden="true">/</span>
+				<input type="radio" id="web" name="tag" value="web" tabindex="-1">
+				<label for="web" tabindex="0">Web</label>
 
-			</ul>
+			</fieldset>			
+			<fieldset>
+				<legend><span role="image" aria-label="Filtrer par provenance">📢</span></legend>
+				<input type="radio" id="allchannels" name="channel" value="all" tabindex="-1" checked>
+				<label for="allchannels" tabindex="0">Tout</label>
+
+			</fieldset>	
 		</div>
 		<div class="grid" id="grid" data-sel="all" data-tri="date">
 <div class="grid-item card blog web" data-date="2020-12-29">
@@ -1288,6 +1310,9 @@
 		<li><a class="mastodon" href="https://mamot.fr/@zemoko" target="_blank" title="Moko sur Mastodon (nouvelle fenêtre)"><span class="sr-only">Mastodon</span></a></li>
 
 
+		<li><a class="pixelfed" href="https://pixelfed.social/@zemoko" target="_blank" title="Moko sur Pixelfed (nouvelle fenêtre)"><span class="sr-only">Pixelfed</span></a></li>
+
+
 		<li><a class="instagram" href="http://instagram.com/zemoko" target="_blank" title="Moko sur Instagram (nouvelle fenêtre)"><span class="sr-only">Instagram</span></a></li>
 
 
@@ -1305,41 +1330,114 @@
 <script>
 var grid = document.querySelector('.grid');
 var contenu = document.querySelector('#content');
-var tags = document.querySelectorAll('#tags a');
-var sort = document.querySelectorAll('#sort a');
+var labels = document.querySelectorAll('fieldset label');
+
+var sort = document.querySelectorAll('input[name=sort]');
+var tags = document.querySelectorAll('input[name=tag]');
+var channels = document.querySelectorAll('input[name=channel]');
 var liens = document.querySelectorAll('.card a');
 
 var is_mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 var transformsEnabledValue = (is_mobile) ? true : false;
 
-function getVar(key, default_) {
-	if (default_==null) default_=0;
-	key = key.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-	var regex = new RegExp("[\\?&#]"+key+"=([^&#]*)");
-	var qs = regex.exec(window.location.href);
-	if(qs == null) return default_; else return qs[1];
-}
-var tagValue = getVar("tag");
-if (tagValue==0) {
-	tagValue = "all";
-}
-contenu.dataset.sel = tagValue;;
-document.querySelector('#tags a.sel').classList.remove("sel")
-document.querySelector('#tags a#'+tagValue).classList.add("sel")
+// Gérer le tri
 
-var sortValue = getVar("tri");
-if (sortValue==0) {
-	sortValue = "date";
-}
+var sortValue = document.querySelector('input[name=sort]:checked').value
 contenu.dataset.tri = sortValue;
-document.querySelector('#sort a.sel').classList.remove("sel")
-document.querySelector('#sort a#'+sortValue).classList.add("sel")
+
+function sortCards(sortValue) {
+		contenu.dataset.tri = sortValue;
+		if (sortValue=="random") {
+			iso.shuffle();
+		} else {
+			iso.arrange({ sortBy: sortValue });
+		}
+
+		_paq.push(["trackEvent", "Isotope", "Trier", sortValue]);
+
+}
+
+for (var i = 0 ; i < sort.length ; i++) {
+	sort[i].addEventListener("change", (event) => {
+		sortValue = event.target.value;
+		sortCards(sortValue);
+	});
+};
+
+// Filrer par tags ou par channels
+
+function getFilter(tagValue, channelValue) {
+	if (tagValue=="all") {
+		if (channelValue=="all") {
+			filterValue = "";
+		} else {
+			filterValue = "."+channelValue;
+		}
+	} else {
+		if (channelValue=="all") {
+			filterValue = "."+tagValue;
+		}	else {
+			filterValue = "."+tagValue+"."+channelValue;
+		}
+	}
+	return filterValue;
+}
+var tagValue = document.querySelector('input[name=tag]:checked').value
+var channelValue = document.querySelector('input[name=channel]:checked').value
+filterValue = getFilter(tagValue,channelValue);
+contenu.dataset.sel = filterValue;
+
+function filterCards(tagValue, channelValue) {
+	filterValue = getFilter(tagValue,channelValue);
+	contenu.dataset.sel = filterValue;
+	iso.arrange({ filter: filterValue });
+
+		_paq.push(["trackEvent", "Isotope", "Filtrer", filterValue]);
+
+}
+
+for (var i = 0 ; i < tags.length ; i++) {
+	tags[i].addEventListener("change", (event) => {
+		tagValue = event.target.value;
+		filterCards(tagValue,channelValue);
+	});
+};
+for (var i = 0 ; i < channels.length ; i++) {
+	channels[i].addEventListener("change", (event) => {
+		channelValue = event.target.value;
+		console.log( channelValue );
+		filterCards(tagValue,channelValue);
+	});
+};
+
+// Cocher les input/radio avec leurs labels associés
+for (var i = 0 ; i < labels.length ; i++) {
+	labels[i].addEventListener('keydown', function(event) {
+  	if (event.code == 'Enter') {
+  		inputName = event.target.getAttribute('for');
+  		document.getElementById( inputName ).checked = true;
+			switch ( document.getElementById( inputName ).getAttribute('name') ) {
+  			case 'sort':
+    			sortCards(inputName);
+    			break;
+  			case 'tag':
+    			filterCards(inputName,channelValue);
+    			break;
+  			case 'channel':
+    			filterCards(tagValue,inputName);
+    			break;
+			}
+  	}
+	});
+};
+
+// Isotope
 
 var iso = new Isotope( grid, {
   // options
   itemSelector: '.grid-item',
   layoutMode: "masonry",
-  filter: ((tagValue=="all") ? "" : "."+tagValue ),
+  filter: filterValue,
   sortBy: sortValue,
   transformsEnabled: transformsEnabledValue,
   sortAscending: false,
@@ -1363,49 +1461,6 @@ imagesLoaded( grid, function() {iso.layout();});
     g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
   })();
 <!-- End Matomo Code -->
-
-// Filtrer
-//tags.forEach(function(element, index) {
-// forEach ne fonctionne pas avec IE11
-for (var i = 0 ; i < tags.length ; i++) {
-	tags[i].addEventListener('click', function(event) {
-		event.preventDefault()
-		tagValue = this.id;
-		contenu.dataset.sel = tagValue;
-		document.querySelector('#tags a.sel').classList.remove("sel")
-		document.querySelector('#tags a#'+tagValue).classList.add("sel")
-		if (tagValue=="all") {
-			tagValue = "";
-		} else {
-			tagValue = "." + tagValue;
-		}
-		iso.arrange({ filter: tagValue });
-
-		_paq.push(["trackEvent", "Isotope", "Filtrer", tagValue]);
-
-	});
-};
-
-// Trier
-//sort.forEach(function(element, index) {
-// forEach ne fonctionne pas avec IE11
-for (var i = 0 ; i < sort.length ; i++) {
-	sort[i].addEventListener('click', function(event) {
-		event.preventDefault()
-		sortValue = this.id;
-		contenu.dataset.tri = sortValue;
-		document.querySelector('#sort a.sel').classList.remove("sel")
-		document.querySelector('#sort a#'+sortValue).classList.add("sel")
-		if (sortValue=="random") {
-			iso.shuffle();
-		} else {
-			iso.arrange({ sortBy: sortValue });
-		}
-
-		_paq.push(["trackEvent", "Isotope", "Trier", tagValue]);
-
-	});
-};
 
 // Liens
 //liens.forEach(function(element, index) {

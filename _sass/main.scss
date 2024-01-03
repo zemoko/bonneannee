@@ -76,6 +76,35 @@ header {
         padding: 0;
     }
 
+    fieldset {
+        border: none;
+        padding: 0;
+        margin: rem(8) 0;
+    }
+    legend {
+        float: right;
+        padding-left: rem(10);
+        @include media("<=s") {
+            float: left;
+            padding-left: 0;
+            padding-right: rem(10);
+        }
+    }
+    input {
+        position: absolute;
+        opacity: 0;
+    }
+    label {
+        &:hover, &:focus {
+            color: #aaa;
+            border-bottom: 1px solid #aaa;
+        }
+    }
+    input:checked + label {
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
     ul {
         display: block;
         list-style: none;
@@ -425,6 +454,25 @@ header {
         }
     }
 
+// Pixelfed
+    &.pixelfed {
+        .card-body {
+            p.channel:before {
+                content:'';
+                background-image: url('../../images/pixelfed.svg');
+                background-size: 30px 30px;
+                background-color: transparent;
+            }
+        }
+        figure + .card-body {
+            h2 a span {
+                &:hover, &:focus {
+                    color: $pixelfed-color;
+                }
+            }
+        }
+    }
+
 }
 
 footer {
@@ -449,6 +497,7 @@ footer {
         padding: 0;
         margin: 0 rem(20);
         position:relative;
+        vertical-align: top;
         @include media("<=xs") {
             margin-top: 0 rem(10);
         }
@@ -503,6 +552,17 @@ footer {
                 }
                 &:hover:before, &:focus:before {
                     background: $instagram-color;
+                }
+            }
+            &.pixelfed {
+                &:before {
+                    content: '';
+                    background-image: url('../../images/pixelfed-black.svg');
+                    background-size: 30px 30px;
+                    background-color: transparent;
+                }
+                &:hover:before, &:focus:before {
+                    background-image: url('../../images/pixelfed.svg');
                 }
             }
             &.linkedin {
