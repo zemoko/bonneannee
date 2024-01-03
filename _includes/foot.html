@@ -90,6 +90,7 @@ function filterCards(tagValue, channelValue) {
 	filterValue = getFilter(tagValue,channelValue);
 	contenu.dataset.sel = filterValue;
 	iso.arrange({ filter: filterValue });
+	iso.getFilteredItemElements()[0].querySelector('a').focus();
 {% if site.matomo %}
 		_paq.push(["trackEvent", "Isotope", "Filtrer", filterValue]);
 {% endif %}
@@ -104,7 +105,6 @@ for (var i = 0 ; i < tags.length ; i++) {
 for (var i = 0 ; i < channels.length ; i++) {
 	channels[i].addEventListener("change", (event) => {
 		channelValue = event.target.value;
-		console.log( channelValue );
 		filterCards(tagValue,channelValue);
 	});
 };
@@ -166,13 +166,13 @@ imagesLoaded( grid, function() {iso.layout();});
 // forEach ne fonctionne pas avec IE11
 for (var i = 0 ; i < liens.length ; i++) {
 	liens[i].addEventListener('focus', function(event) {
-		liens[i].parentNode.parentNode.parentNode.classList.add("hover");
+		event.target.parentNode.parentNode.parentNode.classList.add("hover");
 	});
 	liens[i].addEventListener('blur', function(event) {
-		liens[i].parentNode.parentNode.parentNode.classList.remove("hover");
+		event.target.parentNode.parentNode.parentNode.classList.remove("hover");
 	});
 	liens[i].addEventListener('click', function(event) {
-		linkValue = liens[i].href;
+		linkValue = event.target.href;
 {% if site.matomo %}
 		_paq.push(["trackEvent", "Isotope", "Lien", linkValue]);
 {% endif %}

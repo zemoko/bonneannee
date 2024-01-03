@@ -67,26 +67,26 @@
 					{% if item.image contains ".netlify" %}
 		            <picture>
 		              <source srcset="{{ item.image | replace:'format=jpg','format=webp' }}" type="image/webp">
-		              <img {{ lazyLoad }}src="{{ item.image }}" alt="" width="{{ item.width }}" height="{{ item.height }}">
+		              <img {{ lazyLoad }}src="{{ item.image }}" alt="{{ item.alt }}" width="{{ item.width }}" height="{{ item.height }}">
 		            </picture>
 					{% else %}
 		            <picture>
 		              <source srcset="{{ item.image | replace:'jpg','webp' | replace:'jpeg','webp' }}" type="image/webp">
-		              <img {{ lazyLoad }}src="{{ item.image }}" alt="" width="{{ item.width }}" height="{{ item.height }}">
+		              <img {{ lazyLoad }}src="{{ item.image }}" alt="{{ item.alt }}" width="{{ item.width }}" height="{{ item.height }}">
 		            </picture>
 		            {% endif %}
 				{% else %}
-					<img {{ lazyLoad }}src="{{ item.image }}" alt="" width="{{ item.width }}" height="{{ item.height }}">
+					<img {{ lazyLoad }}src="{{ item.image }}" alt="{{ item.alt }}" width="{{ item.width }}" height="{{ item.height }}">
 				{% endif %}
 			{% else %}
-					<img {{ lazyLoad }}src="{{ item.image | prepend: 'images/' }}" alt="" width="{{ item.width }}" height="{{ item.height }}">
+					<img {{ lazyLoad }}src="{{ item.image | prepend: 'images/' }}" alt="{{ item.alt }}" width="{{ item.width }}" height="{{ item.height }}">
 			{% endif %}
 		{% endif %}
 				</figure>
 	{% endif %}
 				<div class="card-body">
 					<p class="channel"><span class="sr-only" aria-label="{{ item.tags[0].label }}">{{ item.tags[0].label }}</span></p>
-					<h2 id-"h2-{{ forloop.index }}"><a href="{{ item.link }}" target="_blank" title="{{ item.title | strip_html }} (nouvelle fenêtre)" aria-label="{{ item.title | strip_html }} (nouvelle fenêtre)" tabindex="{{ forloop.index0 | plus: 2}}"><span>{{ item.title }}</span></a></h2>
+					<h2 id-"h2-{{ forloop.index }}"><a href="{{ item.link }}" target="_blank" title="{{ item.title | strip_html }} (nouvelle fenêtre)" aria-label="{{ item.title | strip_html }} (nouvelle fenêtre)" tabindex="0"><span>{{ item.title }}</span></a></h2>
 	{% if item.description != "" %}
 					<p id-"p-{{ forloop.index }}">{{ item.description }}</p>
 	{% endif %}

@@ -98,6 +98,7 @@ header {
         &:hover, &:focus {
             color: #aaa;
             border-bottom: 1px solid #aaa;
+            outline: none;
         }
     }
     input:checked + label {
@@ -105,37 +106,6 @@ header {
         text-decoration: underline;
     }
 
-    ul {
-        display: block;
-        list-style: none;
-        padding: 0;
-        @include media("<=s") {
-            margin: rem(5);
-        }
-    }
-    li {
-        display: inline-block;
-        padding: 0;
-        margin: 0;
-        &:after {
-           content:" /"
-        }
-        &:last-child:after {
-            display: none
-        }
-        a {
-            color: #000;
-            text-decoration: none;
-            &:hover, &:focus {
-                color: #aaa;
-                border-bottom: 1px solid #aaa;
-            }
-            &.sel { 
-                font-weight: bold;
-                text-decoration: underline;
-            }
-        }
-    }
 }
 
 .grid {
@@ -268,6 +238,9 @@ header {
             span {
                 position: relative;
                 z-index: 42;
+            }
+            &:hover, &:focus {
+                outline: none;
             }
         }
     }
