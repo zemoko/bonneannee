@@ -62,6 +62,10 @@ for (var i = 0 ; i < sort.length ; i++) {
 		sortCards(sortValue);
 	});
 };
+document.getElementById( 'random' ).addEventListener("click", (event) => {
+	sortValue = event.target.value;
+	sortCards(sortValue);
+});
 
 // Filrer par tags ou par channels
 
@@ -115,17 +119,17 @@ for (var i = 0 ; i < labels.length ; i++) {
   	if (event.code == 'Enter') {
   		inputName = event.target.getAttribute('for');
   		document.getElementById( inputName ).checked = true;
-			switch ( document.getElementById( inputName ).getAttribute('name') ) {
+		switch ( document.getElementById( inputName ).getAttribute('name') ) {
   			case 'sort':
-    			sortCards(inputName);
-    			break;
+    				sortCards(inputName);
+    				break;
   			case 'tag':
-    			filterCards(inputName,channelValue);
-    			break;
+    				filterCards(inputName,channelValue);
+    				break;
   			case 'channel':
-    			filterCards(tagValue,inputName);
-    			break;
-			}
+    				filterCards(tagValue,inputName);
+    				break;
+		}
   	}
 	});
 };
