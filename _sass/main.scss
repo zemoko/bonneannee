@@ -229,22 +229,6 @@ header {
             font-smoothing: antialiased;
         }
     }
-    p.tag { 
-        position: absolute;
-        top: 1rem;
-        right: 0;
-        font-size: rem(20);
-        line-height: rem(30);
-        &:before {
-            color: #000;
-            content: "#"
-            float: left;
-            padding-right: 2px;
-            font-size: 180%;
-        }
-        text-rendering: optimizeLegibility;
-        font-smoothing: antialiased;
-    }
     h2, p {
         padding: rem(5) rem(15);
         margin: 0;
@@ -274,6 +258,17 @@ header {
         zoom: 1;
         opacity: 0;
         transform: translate(translate(0, 15px))
+    }
+    .tag { 
+        &:before {
+            color: #000;
+            content: "#"
+            float: left;
+            padding-right: 2px;
+            font-size: 180%;
+        }
+        text-rendering: optimizeLegibility;
+        font-smoothing: antialiased;
     }
 
     figure + .card-body {
