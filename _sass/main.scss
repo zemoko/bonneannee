@@ -213,9 +213,14 @@ header {
         @include media("<=xs") {
             padding-bottom: rem(5);
         }
-        position: relative;
+    }
+    div.bottom {
+        @include media("<=xs") {
+            padding-bottom: rem(5);
+        }
     }
     p.channel {
+        padding: 0;
         &:before {
             display: flex;
             background: #000;
