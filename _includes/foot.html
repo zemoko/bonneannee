@@ -170,10 +170,10 @@ imagesLoaded( grid, function() {iso.layout();});
 // forEach ne fonctionne pas avec IE11
 for (var i = 0 ; i < liens.length ; i++) {
 	liens[i].addEventListener('focus', function(event) {
-		event.target.parentNode.parentNode.parentNode.classList.add("hover");
+		event.target.parentNode.parentNode.parentNode.parentNode.classList.add("hover");
 	});
 	liens[i].addEventListener('blur', function(event) {
-		event.target.parentNode.parentNode.parentNode.classList.remove("hover");
+		event.target.parentNode.parentNode.parentNode.parentNode.classList.remove("hover");
 	});
 	liens[i].addEventListener('click', function(event) {
 		linkValue = event.target.href;
