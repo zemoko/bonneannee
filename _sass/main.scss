@@ -32,6 +32,7 @@ header {
     padding: rem(2) rem(4);
     margin: rem(5) 0;
     min-width: rem(29);
+    height: rem(44);
 
     @include media("<=s") {
         font-size: rem(34);
