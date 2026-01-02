@@ -1,5 +1,5 @@
 @use "rem.convert";
-@import 'base';
+@use 'base';
 
 .sr-only {
   position: absolute;
@@ -166,7 +166,7 @@ header {
             top: 10px;
             box-shadow: 0 1px 0 2px rgba(0,0,0,.3), 0 5px (10*.4+px) rgba(0,0,0,.5), 0 (10*1.8+px) 9px rgba(0,0,0,.2);
         }
-        time {
+        time, .tag {
             zoom: 1;
             opacity: 1;
             transform: translate(translate(0, 0));
@@ -275,6 +275,7 @@ header {
         font-smoothing: antialiased;
         float: right;
         margin-right: 4px;
+        opacity: 0;
         &:before {
             color: #000;
             content: "#";
@@ -320,12 +321,13 @@ header {
                 opacity: 1;
                 transform: translate(0, 0);
             }
-            time {
+            time, .tag {
                 opacity: 1;
             }
         }
     }
     &:hover, &.hover {
+        figure + .card-body {
             opacity: .9;
             h2 a span {
                 zoom: 1;
@@ -337,6 +339,7 @@ header {
                     text-decoration: underline;
                 }
             }
+        }
     }
     h2 a:focus {
         overflow: hidden;
