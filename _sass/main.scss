@@ -201,7 +201,6 @@ header {
         display: block;
     }
     .card-body {
-        background: #fff;
         opacity: 1;
         transition: opacity .5s ease 0s;
         display: flex;
@@ -217,6 +216,7 @@ header {
         }
     }
     div.bottom {
+        background: #fff;
         padding-top: rem(10);
         @include media("<=xs") {
             padding-bottom: rem(5);
@@ -354,7 +354,6 @@ header {
 // Blog
     &.blog {
         .card-body {
-            background: $blog-color;
             p.channel:before {
                 background: #fff;
                 color: #000;
@@ -365,7 +364,6 @@ header {
             }
         }
         figure + .card-body {
-            background: #fff;
             p.channel:before {
                 background: $blog-color;
                 color: #fff;
@@ -383,7 +381,6 @@ header {
 // Twitter
     &.twitter {
         .card-body {
-            background: $twitter-color;
             p.channel:before {
                 content:"\f099";
                 background: #fff;
@@ -392,7 +389,6 @@ header {
             }
         }
         figure + .card-body {
-            background: #fff;
             p.channel:before {
                 background: $twitter-color;
                 color: #fff;
@@ -410,7 +406,6 @@ header {
 // Mastodon
     &.mastodon {
         .card-body {
-            background: $mastodon-color;
             p.channel:before {
                 content:"\f4f6";
                 background: #fff;
@@ -422,7 +417,6 @@ header {
             }
         }
         figure + .card-body {
-            background: #fff;
             p.channel:before {
                 background: $mastodon-color;
                 color: #fff;
