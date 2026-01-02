@@ -212,6 +212,7 @@ header {
         @include media("<=xs") {
             padding-bottom: rem(5);
         }
+        position: relative;
     }
     p.channel {
         &:before {
@@ -229,14 +230,13 @@ header {
         }
     }
     p.tag {
-        display: flex;
-        background: #000;
-        color: #fff;
-        text-decoration: none;
-        height: rem(30);
-        border-radius: rem(30);
-        justify-content: center;
-        align-items: center;
+        position: absolute;
+        top: 1rem;
+        right: 0;
+        &:before {
+            color: #000;
+            content: "#"
+        }
         text-rendering: optimizeLegibility;
         font-smoothing: antialiased;
     }
