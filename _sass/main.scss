@@ -332,7 +332,13 @@ header {
             top: 10px;
             box-shadow: 0 1px 0 2px rgba(0,0,0,.3), 0 5px (10*.4+px) rgba(0,0,0,.5), 0 (10*1.8+px) 9px rgba(0,0,0,.2);
         }
-        time, .tag {
+        time {
+            zoom: 1;
+            opacity: 1;
+            transform: translate(translate(0, 0));
+            transition:all .4s .2s cubic-bezier(.455, .03, .515, .955);
+        }
+        .tag {
             zoom: 1;
             opacity: 1;
             transform: translate(translate(0, 0));
