@@ -159,21 +159,7 @@ header {
         transition:all ((0.06*1.3) + s) ease-out;
         box-shadow: 0 3px 3px rgba(0,0,0,.7),0 3px 9px rgba(0,0,0,.2);
     }
-  
-    &:hover, &.hover {
-        transform: translateY(-10px);
-        &:before {
-            top: 10px;
-            box-shadow: 0 1px 0 2px rgba(0,0,0,.3), 0 5px (10*.4+px) rgba(0,0,0,.5), 0 (10*1.8+px) 9px rgba(0,0,0,.2);
-        }
-        time, .tag {
-            zoom: 1;
-            opacity: 1;
-            transform: translate(translate(0, 0));
-            transition:all .4s .2s cubic-bezier(.455, .03, .515, .955);
-        }
-     }
-  
+   
     h2 a::after {
         content: "";
         position: absolute;
@@ -326,7 +312,33 @@ header {
             }
         }
     }
+
+    h2 a:focus {
+        overflow: hidden;
+        span {
+            zoom: 1;
+            opacity: 1;
+            transform: translate(0, 0);
+            transition: all .3s .1s cubic-bezier(.455, .03, .515, .955);
+
+            @include media("<=s") {
+                text-decoration: underline;
+            }
+        }
+    }
+
     &:hover, &.hover {
+        transform: translateY(-10px);
+        &:before {
+            top: 10px;
+            box-shadow: 0 1px 0 2px rgba(0,0,0,.3), 0 5px (10*.4+px) rgba(0,0,0,.5), 0 (10*1.8+px) 9px rgba(0,0,0,.2);
+        }
+        time, .tag {
+            zoom: 1;
+            opacity: 1;
+            transform: translate(translate(0, 0));
+            transition:all .4s .2s cubic-bezier(.455, .03, .515, .955);
+        }
         figure + .card-body {
             opacity: .9;
             h2 a span {
@@ -338,19 +350,6 @@ header {
                 @include media("<=s") {
                     text-decoration: underline;
                 }
-            }
-        }
-    }
-    h2 a:focus {
-        overflow: hidden;
-        span {
-            zoom: 1;
-            opacity: 1;
-            transform: translate(0, 0);
-            transition: all .3s .1s cubic-bezier(.455, .03, .515, .955);
-
-            @include media("<=s") {
-                text-decoration: underline;
             }
         }
     }
