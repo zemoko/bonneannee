@@ -57,9 +57,9 @@
 		{% capture extension %}{{ item.image | slice: -3, 3 }}{% endcapture %}
 		{% if extension == "mp4" %}
 			{% if item.image contains "https" %}
-					<video {{ lazyLoad }}type="video/mp4" loop="true" muted="true" autoplay="true" preload="auto" src="{{ item.image}}" >
+					<video {{ lazyLoad }}type="video/mp4" loop="true" muted="true" autoplay="true" preload="auto" src="{{ item.image}}" width="{{ item.width }}" height="{{ item.height }}">
 			{% else %}
-					<video {{ lazyLoad }}type="video/mp4" loop="true" muted="true" autoplay="true" preload="auto" src="{{ item.image | prepend: 'images/' }}" >
+					<video {{ lazyLoad }}type="video/mp4" loop="true" muted="true" autoplay="true" preload="auto" src="{{ item.image | prepend: 'images/' }}" width="{{ item.width }}" height="{{ item.height }}">
 			{% endif %}
 		{% else %}
 			{% if item.image contains "https" %}
