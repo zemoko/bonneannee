@@ -234,9 +234,13 @@ header {
         top: 1rem;
         right: 0;
         font-size: rem(20);
+        line-height: rem(30);
         &:before {
             color: #000;
             content: "#"
+            float: left;
+            padding-right: 2px;
+            font-size: 180%;
         }
         text-rendering: optimizeLegibility;
         font-smoothing: antialiased;
