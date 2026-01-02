@@ -229,10 +229,11 @@ header {
             font-smoothing: antialiased;
         }
     }
-    p.tag {
+    p.tag { 
         position: absolute;
         top: 1rem;
         right: 0;
+        font-size: rem(20);
         &:before {
             color: #000;
             content: "#"
@@ -351,6 +352,9 @@ header {
                 color: #000;
                 content:"6x8";
             }
+            p.tag:before {
+                color: $blog-color;
+            }
         }
         figure + .card-body {
             background: #fff;
@@ -405,6 +409,9 @@ header {
                 color: $mastodon-color;
                 font-family: $font-brands;
             }
+            p.tag:before {
+                color: $mastodon-color;
+            }
         }
         figure + .card-body {
             background: #fff;
@@ -449,6 +456,9 @@ header {
                 background-image: url('../../images/pixelfed.svg');
                 background-size: 30px 30px;
                 background-color: transparent;
+            }
+            p.tag:before {
+                color: $pixelfed-color;
             }
         }
         figure + .card-body {
