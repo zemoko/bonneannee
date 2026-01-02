@@ -93,7 +93,7 @@
 	{% if item.description != "" %}
 						<p id-"p-{{ forloop.index }}">{{ item.description }}</p>
 	{% endif %}
-						<time datetime="{{ item.date }}">{{ item.date | date: "%d %b %y" }}</time>
+						<time datetime="{{ item.date }}">{{ item.date | date: "%d %b %y" | replace: "Dec" "Déc"}}</time>
 	{% for tag in item.tags offset:1 %}
 						<span class="tag">{{ tag.label }}</span>
 	{% endfor %}
