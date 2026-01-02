@@ -261,15 +261,16 @@ header {
         transform: translate(translate(0, 15px))
     }
     .tag { 
+        text-rendering: optimizeLegibility;
+        font-smoothing: antialiased;
+        float: right;
+        margin-right: 4px;
         &:before {
             color: #000;
             content: "#";
             float: left;
             padding-right: 2px;
-            font-size: 180%;
         }
-        text-rendering: optimizeLegibility;
-        font-smoothing: antialiased;
     }
 
     figure + .card-body {
@@ -352,7 +353,7 @@ header {
                 color: #000;
                 content:"6x8";
             }
-            p.tag:before {
+            .tag:before {
                 color: $blog-color;
             }
         }
@@ -409,7 +410,7 @@ header {
                 color: $mastodon-color;
                 font-family: $font-brands;
             }
-            p.tag:before {
+            .tag:before {
                 color: $mastodon-color;
             }
         }
@@ -457,7 +458,7 @@ header {
                 background-size: 30px 30px;
                 background-color: transparent;
             }
-            p.tag:before {
+            .tag:before {
                 color: $pixelfed-color;
             }
         }
