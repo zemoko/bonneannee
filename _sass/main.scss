@@ -206,12 +206,14 @@ header {
         display: flex;
         flex-direction: column;
     }
-    p.channel {
+    div.top {
         flex: 1 1 0%;
         padding: rem(15);
         @include media("<=xs") {
             padding-bottom: rem(5);
         }
+    }
+    p.channel {
         &:before {
             display: flex;
             background: #000;
