@@ -16,13 +16,13 @@ body {
   background: #f2f2f2;
   font-family: $font-stack;
   margin: 0;
-  padding: rem(14, 30);
+  padding: rem(14) rem(30);
   @include media("<=xs") {
     padding: rem(15)
   }
 }
 header {
-  padding: rem(10, 0);
+  padding: rem(10) 0;
   h1 {
     background: #000;
     color: #fff;
