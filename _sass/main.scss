@@ -1,5 +1,5 @@
-@import 'base';
 @use "rem.convert";
+@import 'base';
 
 .sr-only {
   position: absolute;
@@ -490,7 +490,7 @@ footer {
         list-style: none;
         padding: 0;
         margin: rem.convert(20) 0;
-        margin:1.25rem.convert 0;
+        margin:1.25rem 0;
     }
     li {
         display:inline-block;
