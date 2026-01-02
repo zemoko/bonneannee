@@ -87,7 +87,11 @@
 				<div class="card-body">
 					<div class="top">
 						<p class="channel"><span class="sr-only" aria-label="{{ item.tags[0].label }}">{{ item.tags[0].label }}</span></p>
-						<p class="tag"><span>{{ item.tags[1].label }}</span></p>
+						<p class="tag">
+	{% for tag in item.tags offset:1 %}
+						<span>{{ tag.label }}</span>
+	{% endfor %}	
+						</p>
 					</div>
 					<h2 id-"h2-{{ forloop.index }}"><a href="{{ item.link }}" target="_blank" title="{{ item.title | strip_html }} (nouvelle fenêtre)" aria-label="{{ item.title | strip_html }} (nouvelle fenêtre)" tabindex="0"><span>{{ item.title }}</span></a></h2>
 	{% if item.description != "" %}
