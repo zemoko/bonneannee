@@ -1,4 +1,5 @@
 @import 'base';
+@use "rem.convert";
 
 .sr-only {
   position: absolute;
@@ -16,26 +17,26 @@ body {
   background: #f2f2f2;
   font-family: $font-stack;
   margin: 0;
-  padding: rem(14) rem(30);
+  padding: rem.convert(14) rem.convert(30);
   @include media("<=xs") {
-    padding: rem(15)
+    padding: rem.convert(15)
   }
 }
 header {
-  padding: rem(10) 0;
+  padding: rem.convert(10) 0;
   h1 {
     background: #000;
     color: #fff;
     font-weight: normal;
-    font-size: rem(42);
+    font-size: rem.convert(42);
     display: inline-block;
-    padding: rem(2) rem(4);
-    margin: rem(5) 0;
-    min-width: rem(29);
-    height: rem(44);
+    padding: rem.convert(2) rem.convert(4);
+    margin: rem.convert(5) 0;
+    min-width: rem.convert(29);
+    height: rem.convert(44);
 
     @include media("<=s") {
-        font-size: rem(34);
+        font-size: rem.convert(34);
     }
 
     &:before {
@@ -44,7 +45,7 @@ header {
       animation-name: titre;
       animation-duration: 10s;
       animation-timing-function: ease;
-      margin-right: rem(-20);
+      margin-right: rem.convert(-20);
       box-shadow: 0 3px 3px rgba(0,0,0,0.7),0 3px 9px rgba(0,0,0,0.2);
     }
     .cursor {
@@ -57,19 +58,19 @@ header {
     }
   }
   p {
-    padding: rem(2) rem(4);
+    padding: rem.convert(2) rem.convert(4);
     margin: 0
   }
 }
 
 .panel {
-    padding: rem(10) 0;
+    padding: rem.convert(10) 0;
     margin: 0;
     text-align: right;
 
     position: absolute;
-    top: rem(12);
-    right: rem(30);
+    top: rem.convert(12);
+    right: rem.convert(30);
 
     @include media("<=s") {
         position: static;
@@ -80,15 +81,15 @@ header {
     fieldset {
         border: none;
         padding: 0;
-        margin: rem(8) 0;
+        margin: rem.convert(8) 0;
     }
     legend {
         float: right;
-        padding-left: rem(10);
+        padding-left: rem.convert(10);
         @include media("<=s") {
             float: left;
             padding-left: 0;
-            padding-right: rem(10);
+            padding-right: rem.convert(10);
         }
     }
     input {
@@ -110,7 +111,7 @@ header {
 }
 
 .grid {
-    margin: 0 rem(-10);
+    margin: 0 rem.convert(-10);
 }
 
 .grid-item {
@@ -208,31 +209,31 @@ header {
     }
     div.top {
         flex: 1 1 0%;
-        padding: rem(15);
+        padding: rem.convert(15);
         align-content: flex-end;
         z-index: 42;
         @include media("<=xs") {
-            padding-bottom: rem(5);
+            padding-bottom: rem.convert(5);
         }
     }
     div.bottom {
         background: #fff;
-        padding-top: rem(10);
+        padding-top: rem.convert(10);
         @include media("<=xs") {
-            padding-bottom: rem(5);
+            padding-bottom: rem.convert(5);
         }
     }
     p.channel {
         padding: 0;
-        margin-bottom: rem(-29);;
+        margin-bottom: rem.convert(-29);;
         &:before {
             display: flex;
             background: #000;
             color: #fff;
             text-decoration: none;
-            width: rem(30);
-            height: rem(30);
-            border-radius: rem(30);
+            width: rem.convert(30);
+            height: rem.convert(30);
+            border-radius: rem.convert(30);
             justify-content: center;
             align-items: center;
             text-rendering: optimizeLegibility;
@@ -240,7 +241,7 @@ header {
         }
     }
     h2, p {
-        padding: rem(5) rem(15);
+        padding: rem.convert(5) rem.convert(15);
         margin: 0;
         line-height: .9;
     }
@@ -263,7 +264,7 @@ header {
         }
     }
     time {
-        padding: 0 rem(15) rem(15) rem(15);
+        padding: 0 rem.convert(15) rem.convert(15) rem.convert(15);
         color: #fff;
         zoom: 1;
         opacity: 0;
@@ -284,8 +285,8 @@ header {
 
     figure + .card-body {
         position: absolute;
-        top: rem(15);
-        left: rem(15);
+        top: rem.convert(15);
+        left: rem.convert(15);
         width: calc(100% - 30px);
         height: calc(100% - 30px);
         opacity: 0;
@@ -475,30 +476,30 @@ header {
 }
 
 footer {
-    margin-top: rem(100);
+    margin-top: rem.convert(100);
     border-top: 1px solid #999;
     text-align: center;
     @include media("<=xs") {
-        margin-top: rem(50);
+        margin-top: rem.convert(50);
     }
     p {
-        margin: rem(20) 0;
+        margin: rem.convert(20) 0;
     }
     ul {
         display: block;
         list-style: none;
         padding: 0;
-        margin: rem(20) 0;
-        margin:1.25rem 0;
+        margin: rem.convert(20) 0;
+        margin:1.25rem.convert 0;
     }
     li {
         display:inline-block;
         padding: 0;
-        margin: 0 rem(20);
+        margin: 0 rem.convert(20);
         position:relative;
         vertical-align: top;
         @include media("<=xs") {
-            margin-top: 0 rem(10);
+            margin-top: 0 rem.convert(10);
         }
         a {
             text-decoration:none;
@@ -506,16 +507,16 @@ footer {
                 display: flex;
                 background: #000;
                 color: #fff;
-                width: rem(30);
-                height: rem(30);
-                border-radius: rem(30);
+                width: rem.convert(30);
+                height: rem.convert(30);
+                border-radius: rem.convert(30);
                 justify-content: center;
                 align-items: center;
                 text-rendering: optimizeLegibility;
                 font-smoothing: antialiased;
             }
             &:hover:before, &:focus:before {
-                box-shadow: 0 0 rem(15) rgba(0,0,0,0.2);
+                box-shadow: 0 0 rem.convert(15) rgba(0,0,0,0.2);
             }
             &.facebook {
                 &:before {
