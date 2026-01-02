@@ -1,4 +1,4 @@
-@import 'base';
+@use 'base';
 
 .sr-only {
   position: absolute;
@@ -211,6 +211,7 @@ header {
     p.channel {
         padding: 0;
         margin-bottom: torem(-29);;
+        margin-left: torem(-2);;
         &:before {
             display: flex;
             background: #000;
