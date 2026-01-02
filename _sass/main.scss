@@ -263,7 +263,7 @@ header {
     .tag { 
         &:before {
             color: #000;
-            content: "#"
+            content: "#";
             float: left;
             padding-right: 2px;
             font-size: 180%;
