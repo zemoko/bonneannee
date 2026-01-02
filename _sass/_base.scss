@@ -31,7 +31,7 @@ $github-color: #0366d6;
     @return $value / ($value * 0 + 1);
 }
 
-@function rem($pxValue) {
+@function torem($pxValue) {
     @return #{stripUnit($pxValue) / stripUnit($html-font-size)}rem;
 }
 
