@@ -500,7 +500,7 @@ header {
     z-index: 11;
     width: 75%;
     border-bottom: 1px solid $main-color;
-    padding-bottom: calc(1rem + 2px);
+    padding-bottom: calc(.5rem + 2px);
   }
   li {
       position: relative;
@@ -512,14 +512,13 @@ header {
   a {
     position: absolute;
     font-weight: 400;
+    color: $main-color;
     right: 0;
     transform: translateX(50%);
-    transition: 0.2s all ease-in-out;
-    transition-delay: 0s;
     z-index: 1;
     &:after {
       position: absolute;
-      top: calc(100% + 19px);
+      top: calc(100% + 11px);
       right: 50%;
       transform: translateX(50%) translateY(-50%);
       width: 12px;
@@ -527,8 +526,6 @@ header {
       background: $main-color;
       border-radius: 2rem;
       content: "";
-      transition: 0.2s all ease-in-out;
-      transition-delay: 0s;
       z-index: 1;
     }
   }
@@ -537,14 +534,13 @@ header {
       font-weight: 400;
       transition-delay: 0.4s;
       &:after {
-        background: $main-color;
+        background: $secondary-color;
         width: 25px;
         height: 25px;
-        transition-delay: 0.4s;
       }
     }
     ~ li a {
-      color: $main-color;
+      color: $secondary-color;
       font-weight: 16px;
       :after {
         background: $secondary-color;
