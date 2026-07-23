@@ -233,7 +233,7 @@ header {
     }
     h2 {
         a {
-            color: #fff;
+            color: #000;
             text-decoration: none;
             span {
                 position: relative;
@@ -278,7 +278,6 @@ header {
         height: calc(100% - 30px);
         opacity: 0;
         h2 a {
-            color: #000;
             span {
                 zoom: 1;
                 opacity: 0;
@@ -379,7 +378,7 @@ header {
                 color: #fff;
             }
         }
-        figure + .card-body {
+        .card-body {
             h2 a span {
                 &:hover, &:focus {
                     color: $blog-color;
@@ -405,7 +404,7 @@ header {
                 color: #fff;
             }
         }
-        figure + .card-body {
+        .card-body {
             h2 a span {
                 &:hover, &:focus {
                     color: $twitter-color;
@@ -434,7 +433,7 @@ header {
                 color: #fff;
             }
         }
-        figure + .card-body {
+        .card-body {
             h2 a span {
                 &:hover, &:focus {
                     color: $mastodon-color;
@@ -447,7 +446,6 @@ header {
 // Instagram
     &.instagram {
         .card-body {
-            background: $instagram-color;
             p.channel:before {
                 background: $instagram-color;
                 font-family: $font-brands;
