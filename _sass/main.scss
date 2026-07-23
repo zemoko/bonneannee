@@ -516,6 +516,12 @@ header {
     right: 0;
     transform: translateX(50%);
     z-index: 1;
+    &:hover, &:focus {
+        color: $secondary-color;
+        &:after {
+            background: $secondary-color;
+        }
+    }
     &:after {
       position: absolute;
       top: calc(100% + 11px);
@@ -532,6 +538,7 @@ header {
   li.active {
     a {
       font-weight: 400;
+      font-size: 1.5rem;
       transition-delay: 0.4s;
       &:after {
         background: $secondary-color;
@@ -542,7 +549,7 @@ header {
     ~ li a {
       color: $secondary-color;
       font-weight: 16px;
-      :after {
+      &:after {
         background: $secondary-color;
       }
     }
