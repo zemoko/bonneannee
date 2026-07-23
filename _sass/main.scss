@@ -491,7 +491,7 @@ header {
 }
 
 .timeline {
-    margin-bottom: 1rem
+    margin-bottom: 2rem;
   ul {
     position: relative;
     margin: 1rem auto 0 auto;
@@ -522,6 +522,7 @@ header {
     z-index: 1;
     &:hover, &:focus {
         color: $secondary-color;
+
         &:after {
             background: $secondary-color;
         }
@@ -546,8 +547,8 @@ header {
       color: $secondary-color;
       &:after {
         background: $secondary-color;
-        width: 25px;
-        height: 25px;
+        width: 20px;
+        height: 20px;
       }
     }
     ~ li a {
