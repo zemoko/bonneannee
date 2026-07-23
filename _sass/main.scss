@@ -373,6 +373,7 @@ header {
             }
         }
         figure + .card-body {
+            background: transparent;
             p.channel:before {
                 background: $blog-color;
                 color: #fff;
@@ -399,6 +400,7 @@ header {
             }
         }
         figure + .card-body {
+            background: transparent;
             p.channel:before {
                 background: $twitter-color;
                 color: #fff;
