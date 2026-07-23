@@ -362,6 +362,7 @@ header {
 
 // Blog
     &.blog {
+        background: $blog-color;
         .card-body {
             p.channel:before {
                 background: #fff;
@@ -390,6 +391,7 @@ header {
 // Twitter
     &.twitter {
         .card-body {
+            background: $twitter-color;
             p.channel:before {
                 content:"\f099";
                 background: #fff;
@@ -415,6 +417,7 @@ header {
 // Mastodon
     &.mastodon {
         .card-body {
+            background: $mastodon-color;
             p.channel:before {
                 content:"\f4f6";
                 background: #fff;
@@ -444,6 +447,7 @@ header {
 // Instagram
     &.instagram {
         .card-body {
+            background: $instagram-color;
             p.channel:before {
                 background: $instagram-color;
                 font-family: $font-brands;
