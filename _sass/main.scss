@@ -547,7 +547,8 @@ header {
       color: $main-color;
       font-weight: 16px;
       :after {
-        background: $secondary-color;;
+        background: $secondary-color;
+      }
     }
   }
 }
