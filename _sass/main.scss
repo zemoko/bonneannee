@@ -430,6 +430,7 @@ header {
             }
         }
         figure + .card-body {
+            background: transparent;
             p.channel:before {
                 background: $mastodon-color;
                 color: #fff;
@@ -455,6 +456,7 @@ header {
             }
         }
         figure + .card-body {
+            background: transparent;
             h2 a span {
                 &:hover, &:focus {
                     color: $instagram-color;
@@ -477,6 +479,7 @@ header {
             }
         }
         figure + .card-body {
+            background: transparent;
             h2 a span {
                 &:hover, &:focus {
                     color: $pixelfed-color;
